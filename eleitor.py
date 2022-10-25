@@ -2,7 +2,7 @@
 
 class Eleitor:
 
-    def __init__(self, nome: str, codigo: int, tipo: str):
+    def __init__(self, nome, codigo, tipo: str):
         self.__nome = nome
         self.__codigo = codigo
         self.__tipo = tipo
