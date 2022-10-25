@@ -14,8 +14,11 @@ class ControladorVoto:
         self.__controlador_eleitor.inclui_eleitor()
         
     def adiciona_voto(self):
-        self.__tela_voto.voto_reitor()
-        #implementar votos de reitor e pro reitores
-        self.__controlador_eleitor.ja_votou()  
-        
 
+        voto = Voto("a")
+
+        self.__tela_voto.voto_reitor()
+        self.__tela_voto.voto_proreitor_grad()
+        self.__tela_voto.voto_proreitor_pes()
+        self.__tela_voto.voto_proreitor_ext()
+        

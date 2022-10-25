@@ -5,12 +5,18 @@ class TelaVoto:
         pass
 
     def cadastra_eleitor(self):
-        
+       pass 
 
     def voto_reitor(self):
         pass
 
-    def voto_proreitor(self):
+    def voto_proreitor_grad(self):
+        pass
+
+    def voto_proreitor_pes(self):
+        pass
+
+    def voto_proreitor_ext(self):
         pass
 
     def valida_dados(self):

@@ -26,7 +26,7 @@ class ControladorPrincipal:
     def inicia_voto(self):
         self.__controlador_voto.cadastro_eleitor()
         self.__controlador_voto.adiciona_voto()
-
+        self.__controlador_eleitor.ja_votou()
 
     def inicia_cadastro(self):
         self.__controlador_candidato.mostra_tela_candidato()
