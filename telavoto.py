@@ -5,7 +5,7 @@ class TelaVoto:
         pass
 
     def cadastra_eleitor(self):
-        pass
+        
 
     def voto_reitor(self):
         pass

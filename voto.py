@@ -1,8 +1,6 @@
-from eleitor import Eleitor
-
 class Voto:
-    def __init__(self, tipo_eleitor: str):
-        self.__tipo_eleitor = str
+    def __init__(self, tipo_eleitor):
+        self.__tipo_eleitor = None
         self.__candidato = None
 
     @property
