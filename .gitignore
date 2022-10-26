@@ -1,0 +1,13 @@
+__init__.py
+__pycache__/voto.cpython-37.pyc
+__pycache__/telavoto.cpython-37.pyc
+__pycache__/telainicial.cpython-37.pyc
+__pycache__/telaeleitor.cpython-37.pyc
+__pycache__/resultado.cpython-37.pyc
+__pycache__/eleitor.cpython-37.pyc
+__pycache__/controladorvoto.cpython-37.pyc
+__pycache__/controladorprincipal.cpython-37.pyc
+__pycache__/controladoreleitor.cpython-37.pyc
+__pycache__/controladorcandidato.cpython-37.pyc
+__pycache__/candidato.cpython-37.pyc
+.vscode/launch.json
