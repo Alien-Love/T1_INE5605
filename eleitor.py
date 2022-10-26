@@ -38,5 +38,4 @@ class Eleitor:
 
     @votou.setter
     def votou(self, votou):
-        self.__votou = votou
-    
+        self.__votou = True

@@ -1,10 +1,10 @@
-from controladorprincipal import ControladorPrincipal
+#from controladorprincipal import ControladorPrincipal
 from controladorvoto import ControladorVoto
 
 class ControladorUrna:
 
-    def __init__(self):
-        pass
+    def __init__(self, controlador_principal):
+        self.__controlador_principal = controlador_principal
 
 
     def incluir_eleitor(self):
@@ -20,3 +20,4 @@ class ControladorUrna:
 
 
     def excluir_candidato(Candidato):
+        pass

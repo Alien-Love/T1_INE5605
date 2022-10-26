@@ -1,7 +1,5 @@
-from controladorprincipal import ControladorPrincipal
-
 class TelaInicial:
 
     def tela_opcoes(self):
-        opcao = input()
+        opcao = input("digite a opcao:")
         return int(opcao)

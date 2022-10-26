@@ -1,23 +1,17 @@
 
 class TelaVoto:
 
-    def mostra_tela(self):
-        pass
-
-    def cadastra_eleitor(self):
-       pass 
-
     def voto_reitor(self):
-        pass
+        print("voto_reitor")
 
     def voto_proreitor_grad(self):
-        pass
+        print("voto_pro1")
 
     def voto_proreitor_pes(self):
-        pass
+        print("votopro2")
 
     def voto_proreitor_ext(self):
-        pass
+        print("votopro3")
 
     def valida_dados(self):
         pass
