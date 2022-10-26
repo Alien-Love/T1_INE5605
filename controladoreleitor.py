@@ -21,7 +21,7 @@ class ControladorEleitor:
 
     def ja_votou(self, eleitor):
         eleitor = self.__eleitor
-        #eleitor.votou = True
+        eleitor.votou = True
         print(eleitor.votou)
     
     @property
