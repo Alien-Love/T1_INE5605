@@ -6,6 +6,7 @@ class TelaInicial:
         print("1 - Iniciar Voto")
         print("2 - Cadastro de Candidato")
         print("3 - Resultados")
+        print("4 - Configurar Urna")
         print("0 - Sair")
         opcao = input("digite a opcao:")
         print("*"*20)

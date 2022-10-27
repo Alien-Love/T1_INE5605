@@ -4,10 +4,10 @@ class Candidato:
                  chapa = str,
                  nome = str,
                  cargo = str):
-        self.codigo = codigo
-        self.chapa = chapa
-        self.nome = nome
-        self.cargo = cargo
+        self.__codigo = codigo
+        self.__chapa = chapa
+        self.__nome = nome
+        self.__cargo = cargo
 
 
     @property
