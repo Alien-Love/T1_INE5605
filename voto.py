@@ -1,5 +1,5 @@
 class Voto:
-    def __init__(self, tipo_eleitor):
+    def __init__(self):
         self.__tipo_eleitor = None
         self.__candidato_reitor = None
         self.__candidato_proreitor_grad = None

@@ -1,5 +1,3 @@
-
-
 class Eleitor:
 
     def __init__(self, nome, codigo, tipo: str):
@@ -23,7 +21,7 @@ class Eleitor:
     @codigo.setter
     def codigo(self, codigo):
         self.__codigo = codigo
-
+    
     @property
     def tipo(self):
         return self.__tipo

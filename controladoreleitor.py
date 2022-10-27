@@ -8,21 +8,22 @@ class ControladorEleitor:
         self.__tela_eleitor = TelaEleitor()
         #self.__controlador_urna = ControladorUrna(self)
         self.__eleitores = []
-        self.__eleitor = None  #armazena o eleitor atual, que sera passado como argumento na funcao ja_votou
+        self.__eleitor = None  #eleitor atual, que sera passado como argumento na funcao ja_votou
 
     def inclui_eleitor(self):
         dados = self.__tela_eleitor.cadastro_eleitor()
         eleitor = Eleitor(dados[0], dados[1], dados[2]) #pega dados do eleitor a partir da tela de cadastro
         self.__eleitores.append(eleitor)
-        self.__eleitor = eleitor
+        self.__eleitor = eleitor #armazena o eleitor criado pela função na classe ControladorEleitor
         print(self.__eleitores) #teste
         print(eleitor.tipo) #teste
-
 
     def ja_votou(self, eleitor):
         eleitor = self.__eleitor
         eleitor.votou = True
-        print(eleitor.votou)
+        print(eleitor.votou) #teste
+        self.__eleitor = None
+        print(self.__eleitor) #teste
     
     @property
     def eleitores(self):
