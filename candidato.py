@@ -12,30 +12,38 @@ class Candidato:
 
     @property
     def codigo(self):
-        pass
+        return self.__codigo
 
 
     @codigo.setter
-    def codigo(codigo):
-        pass
+    def codigo(self, codigo):
+        if codigo is 'valido':
+            self.__codigo = codigo
+        else:
+            print('Por favor, insira um código válido')
 
 
     @property
     def nome(self):
-        pass
+        return self.__nome
 
 
-    @codigo.setter
-    def nome(nome):
-        pass
+    @nome.setter
+    def nome(self, nome):
+        if nome is 'valido':
+            self.__nome = nome
+        else:
+            print('Por favor, insira um nome válido')
 
 
     @property
     def cargo(self):
-        pass
+        return self.__cargo
 
 
     @cargo.setter
-    def cargo(cargo):
-        pass
-
+    def cargo(self, cargo):
+        if cargo is 'valido':
+            self.__cargo = cargo
+        else:
+            print('Por favor, insira um cargo válido')
