@@ -4,10 +4,10 @@ class Candidato:
                  chapa = str,
                  nome = str,
                  cargo = str):
-        self.codigo = codigo
-        self.chapa = chapa
-        self.nome = nome
-        self.cargo = cargo
+        self.__codigo = codigo
+        self.__chapa = chapa
+        self.__nome = nome
+        self.__cargo = cargo
 
 
     @property
@@ -16,11 +16,13 @@ class Candidato:
 
 
     @codigo.setter
-    def codigo(self, codigo):
-        if codigo is 'valido':
-            self.__codigo = codigo
-        else:
-            print('Por favor, insira um código válido')
+    def codigo(self, valor):
+        return self.__codigo = valor
+
+#        if codigo is 'valido':
+#            self.__codigo = codigo
+#        else:
+#            print('Por favor, insira um código válido')
 
 
     @property
@@ -29,11 +31,13 @@ class Candidato:
 
 
     @nome.setter
-    def nome(self, nome):
-        if nome is 'valido':
-            self.__nome = nome
-        else:
-            print('Por favor, insira um nome válido')
+    def nome(self, valor):
+        self.__nome = valor
+
+#        if nome is 'valido':
+#            self.__nome = nome
+#        else:
+#            print('Por favor, insira um nome válido')
 
 
     @property
@@ -42,8 +46,10 @@ class Candidato:
 
 
     @cargo.setter
-    def cargo(self, cargo):
-        if cargo is 'valido':
-            self.__cargo = cargo
-        else:
-            print('Por favor, insira um cargo válido')
+    def cargo(self, valor):
+        self.__cargo = valor
+
+#        if cargo is 'valido':
+#            self.__cargo = cargo
+#        else:
+#            print('Por favor, insira um cargo válido')
