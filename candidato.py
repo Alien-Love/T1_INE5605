@@ -12,30 +12,29 @@ class Candidato:
 
     @property
     def codigo(self):
-        pass
+        return self.__codigo
 
 
     @codigo.setter
-    def codigo(codigo):
-        pass
+    def codigo(self, valor):
+        self.__codigo = valor
 
 
     @property
     def nome(self):
-        pass
+        return self.__nome
 
 
-    @codigo.setter
-    def nome(nome):
-        pass
+    @nome.setter
+    def nome(self, valor):
+        self.__nome = valor
 
 
     @property
     def cargo(self):
-        pass
+        return self.__cargo
 
 
     @cargo.setter
-    def cargo(cargo):
-        pass
-
+    def cargo(self, valor):
+        self.__cargo = valor
