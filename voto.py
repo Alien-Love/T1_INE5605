@@ -9,7 +9,7 @@ class Voto:
     @property
     def candidato_reitor(self):
         return self.__candidato_reitor
-
+    
     @candidato_reitor.setter
     def candidato_reitor(self, candidato):
         self.__candidato_reitor = candidato

@@ -2,19 +2,18 @@
 class TelaVoto:
 
     def voto_reitor(self):
-        print("voto_reitor")
+        print("Digite seu voto")
+        print("Reitoria: ")
 
     def voto_proreitor_grad(self):
-        print("voto_pro1")
+        print("Pro-Reitoria de Graduação: ")
 
     def voto_proreitor_pes(self):
-        print("votopro2")
+        print("Pro-Reitoria de Pesquisa e Inovacao: ")
 
     def voto_proreitor_ext(self):
-        print("votopro3")
+        print("Pro-Reitoria de Extensão: ")
 
-    def valida_dados(self):
-        pass
+    def categoria_vazia(self):
+        print("Categoria nao possui candidatos!")
 
-    def valida_voto(self):
-        pass    

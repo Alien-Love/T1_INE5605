@@ -1,5 +1,5 @@
 class TelaInicial:
-
+    #a opcao deve ser um numero entre 0 e 4
     def tela_opcoes(self):
         print("*"*20)
         print("Urna Eletronica")

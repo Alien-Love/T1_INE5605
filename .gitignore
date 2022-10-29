@@ -11,3 +11,6 @@ __pycache__/controladoreleitor.cpython-37.pyc
 __pycache__/controladorcandidato.cpython-37.pyc
 __pycache__/candidato.cpython-37.pyc
 .vscode/launch.json
+__pycache__/configuracao.cpython-37.pyc
+__pycache__/controladorconfiguracao.cpython-37.pyc
+__pycache__/telaconfiguracao.cpython-37.pyc

@@ -6,8 +6,8 @@ class Urna:
                  serie = int,
                  eleitores = [],
                  turno = int):
-        self.serie() = serie
-        self.turno() = turno
+        self.__serie = serie
+        self.__turno = turno
 
 
     @property
