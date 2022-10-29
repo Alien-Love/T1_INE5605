@@ -71,6 +71,5 @@ class TelaCandidato:
 
 
 
-#    def validar_dados():
-#       pass
-
+    def validar_dados(self):
+       pass

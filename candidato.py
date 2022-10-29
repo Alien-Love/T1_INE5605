@@ -17,12 +17,7 @@ class Candidato:
 
     @codigo.setter
     def codigo(self, valor):
-        return self.__codigo = valor
-
-#        if codigo is 'valido':
-#            self.__codigo = codigo
-#        else:
-#            print('Por favor, insira um código válido')
+        self.__codigo = valor
 
 
     @property
@@ -34,11 +29,6 @@ class Candidato:
     def nome(self, valor):
         self.__nome = valor
 
-#        if nome is 'valido':
-#            self.__nome = nome
-#        else:
-#            print('Por favor, insira um nome válido')
-
 
     @property
     def cargo(self):
@@ -48,8 +38,3 @@ class Candidato:
     @cargo.setter
     def cargo(self, valor):
         self.__cargo = valor
-
-#        if cargo is 'valido':
-#            self.__cargo = cargo
-#        else:
-#            print('Por favor, insira um cargo válido')

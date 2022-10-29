@@ -24,11 +24,12 @@ def mostra_tela_candidato(self):
 
     @property
     def adicionar_candidato(self, info):
-
+        pass
 
 
     @adicionar_candidato.setter
     def adicionar_candidato(self, Candidato):
+        pass
 
 
     @adicionar_candidato.deleter
@@ -37,7 +38,7 @@ def mostra_tela_candidato(self):
 
 
     def listar_candidatos(self):
-        candidatos = urna.lista_candidatos #<------ revisar
+        candidatos = Urna.lista_candidatos
         return candidatos
 
 
