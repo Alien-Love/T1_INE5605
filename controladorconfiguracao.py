@@ -10,10 +10,9 @@ class ControladorConfiguracao:
     @property
     def configuracao(self):
         return self.__configuracao
-        
+
     def configurar(self):
         dados = self.__tela_configuracao.config_()
-        lista_cargos = dados[3]
         rei_torias = {1: "reitoria", 2: "prograd", 3: "propes", 4: "proex"}
         lista_reitorias = []
 
@@ -21,16 +20,14 @@ class ControladorConfiguracao:
             configuracao = Configuracao(dados[0], dados[1], dados[2], list(rei_torias.values()))
             #instancia configuracao com todas as categorias de candidato para voto 
             self.__configuracao = configuracao
-            print(self.__configuracao) #teste
         
-        else:
-            configuracao = Configuracao(dados[0], dados[1], dados[2], dados[3])
+        else: #configuracao para o segundo turno
+            configuracao = Configuracao(dados[0], dados[1], dados[2], [])
             self.__configuracao = configuracao
-            lista_reitorias.clear()
+            lista_cargos = dados[3] #recebe os cargos desejados pelo input da tela
+            lista_reitorias.clear() #limpa lista que armazena os cargos participantes
 
             for i in range(len(lista_cargos)):
                 lista_reitorias.append(rei_torias.get(lista_cargos[i]))
                 #o objeto sera passado para a declaracao if dentro da funcao 'adiciona_voto'
-        
-        self.__configuracao.reitorias = lista_reitorias    
-        print(self.__configuracao.reitorias) #teste
+                self.__configuracao.reitorias = lista_reitorias

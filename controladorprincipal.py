@@ -35,6 +35,7 @@ class ControladorPrincipal:
         return self.__controlador_configuracao
 
     def inicia_voto(self):
+        
         self.__controlador_eleitor.inclui_eleitor()
         self.__controlador_voto.adiciona_voto()
         self.__controlador_eleitor.ja_votou(self.__controlador_eleitor.eleitor)
