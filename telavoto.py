@@ -1,19 +1,30 @@
+from abstracttela import AbstractTela
 
-class TelaVoto:
+class TelaVoto(AbstractTela):
+
+    def __init__(self):
+        super().__init__()
+
+    def le_inteiro(self):
+        return super().le_inteiro()
 
     def voto_reitor(self):
-        print("Digite seu voto")
-        print("Reitoria: ")
+        print("Digite Seu Voto")
+        numero = input("Reitoria: ")
+        return numero
 
     def voto_proreitor_grad(self):
-        print("Pro-Reitoria de Graduação: ")
+        numero = input("Pro-Reitoria de Graduação: ")
+        return numero
 
     def voto_proreitor_pes(self):
-        print("Pro-Reitoria de Pesquisa e Inovacao: ")
-
+        numero = input("Pro-Reitoria de Pesquisa e Inovacao: ")
+        return numero
+    
     def voto_proreitor_ext(self):
-        print("Pro-Reitoria de Extensão: ")
-
+        numero = input("Pro-Reitoria de Extensão: ")
+        return numero
+    
     def categoria_vazia(self):
         print("Categoria nao possui candidatos!")
 

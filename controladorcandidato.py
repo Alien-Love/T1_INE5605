@@ -7,7 +7,10 @@ class ControladorCandidato:
 
     def __init__(self, controlador_principal):
         self.__controlador_principal = controlador_principal
-
+        self.__candidatos_reitor = []
+        self.__candidatos_prograd = []
+        self.__candidatos_propes = []
+        self.__candidatos_proex = []
 
 def mostra_tela_candidato(self):
     escolha = TelaCandidato.mostrar_tela()

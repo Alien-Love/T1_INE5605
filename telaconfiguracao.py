@@ -1,8 +1,15 @@
-class TelaConfiguracao:
+from abstracttela import AbstractTela
+
+class TelaConfiguracao(AbstractTela):
     
     #as entradas deverao ser numeros inteiros
     #a quantidade de eleitores deve ser um inteiro positivo
     #a quantia de candidatos para o primeiro turno deve ser um inteiro positivo ate 99
+    def __init__(self):
+        super().__init__()
+
+    def le_inteiro(self):
+        return super().le_inteiro()
 
     def config_(self):
 

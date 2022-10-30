@@ -14,3 +14,6 @@ __pycache__/candidato.cpython-37.pyc
 __pycache__/configuracao.cpython-37.pyc
 __pycache__/controladorconfiguracao.cpython-37.pyc
 __pycache__/telaconfiguracao.cpython-37.pyc
+__pycache__/telacandidato.cpython-37.pyc
+__pycache__/urna.cpython-37.pyc
+__pycache__/abstracttela.cpython-37.pyc
