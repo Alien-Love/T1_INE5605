@@ -6,6 +6,7 @@ class ControladorVoto:
     def __init__(self, controlador_principal):
         self.__controlador_principal = controlador_principal
         self.__tela_voto = TelaVoto()
+        self.__lista_votos = []
         
     def adiciona_voto(self):
 
@@ -35,4 +36,5 @@ class ControladorVoto:
                     voto.candidato_escolhido = 00
             else:
                 self.__tela_voto.categoria_vazia()
-        
+            
+            self.__lista_votos.append(voto)
