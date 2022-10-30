@@ -1,4 +1,3 @@
-import controladorcandidato
 from controladorcandidato import mostrar_candidato, listar_candidatos as lc, ControladorCandidato
 
 
@@ -32,9 +31,9 @@ class TelaCandidato:
         codigo_candidato_removido = input('Digite o codigo do candidato a ser removido: ')
         confirm = input(f'Digite SIM para remover o candidato {mostrar_candidato(codigo_candidato_removido).nome}:')
         if confirm == 'SIM':
-            return codigo_candidato_removido
+            return mostrar_candidato(codigo_candidato_removido)
         else:
-            return ('Nenhum candidato foi removido')
+            print('Nenhum candidato foi removido')
 
 
     def listar_candidatos(self):
@@ -59,16 +58,15 @@ class TelaCandidato:
                     resposta = input('Qual dado gostaria de alterar? ')
                     if resposta.lower in ('a', 'b', 'c', 'd'):
                         if resposta == 'a':
-                            mostrar_candidato(a).codigo = input('Digite o novo código: ')
+                            return(mostrar_candidato(a), 'a', input('Digite o novo código: '))
                         elif resposta == 'b':
-                            mostrar_candidato(a).chapa = input('Digite a nova chapa: ')
+                            return(mostrar_candidato(a), 'b', input('Digite a nova chapa: '))
                         elif resposta == 'c':
-                            mostrar_candidato(a).nome = input('Digite o novo nome: ')
+                            return(mostrar_candidato(a), 'c', input('Digite o novo nome: '))
                         elif resposta == 'd':
-                            mostrar_candidato(a).cargo = input('Digite o novo cargo: ')
+                            return(mostrar_candidato(a), 'd', input('Digite o novo cargo: '))
                     else:
                         print('Digite uma opção válida.')
-
 
 
     def validar_dados(self):
