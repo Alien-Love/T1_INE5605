@@ -1,6 +1,4 @@
-
-
-class Urna:
+class TelaUrna:
 
     def __init__(self):
         pass

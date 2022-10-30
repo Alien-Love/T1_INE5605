@@ -1,7 +1,8 @@
-from controladorcandidato import mostrar_candidato, listar_candidatos as lc, ControladorCandidato
-
-
 class TelaCandidato:
+
+    def __init__(self):
+        super().__init__()
+
 
     def mostrar_tela(self):
         while True:
@@ -29,24 +30,19 @@ class TelaCandidato:
 
     def remover_candidato(self):
         codigo_candidato_removido = input('Digite o codigo do candidato a ser removido: ')
-        confirm = input(f'Digite SIM para remover o candidato {mostrar_candidato(codigo_candidato_removido).nome}:')
-        if confirm == 'SIM':
-            return mostrar_candidato(codigo_candidato_removido)
-        else:
-            print('Nenhum candidato foi removido')
+        return codigo_candidato_removido
 
 
-    def listar_candidatos(self):
-        candidatos = lc()
+    def listar_candidatos(self, candidatos):
         for candidato in candidatos:
-            print(f'Candidato: {candidato.nome} - Código: {candidato.codigo}')
+            print(f'Candidato: {candidato.nome} - Cargo: {candidato.cargo}')
         pass
 
 
     def alterar_candidato(self):
         while True:
             a = input('Digite o código do candidato a ser alterado: ')
-            confirm = input(f'Esse é o candidato que deseja alterar? {mostrar_candidato(a).nome} Digite SIM para confirmar: ')
+            confirm = input(f'Esse é o código do candidato que deseja alterar? {a} Digite SIM para confirmar: ')
             while True:
                 if confirm == 'SIM':
                     print("""
@@ -58,13 +54,13 @@ class TelaCandidato:
                     resposta = input('Qual dado gostaria de alterar? ')
                     if resposta.lower in ('a', 'b', 'c', 'd'):
                         if resposta == 'a':
-                            return(mostrar_candidato(a), 'a', input('Digite o novo código: '))
+                            return(a, 'a', input('Digite o novo código: '))
                         elif resposta == 'b':
-                            return(mostrar_candidato(a), 'b', input('Digite a nova chapa: '))
+                            return(a, 'b', input('Digite a nova chapa: '))
                         elif resposta == 'c':
-                            return(mostrar_candidato(a), 'c', input('Digite o novo nome: '))
+                            return(a, 'c', input('Digite o novo nome: '))
                         elif resposta == 'd':
-                            return(mostrar_candidato(a), 'd', input('Digite o novo cargo: '))
+                            return(a, 'd', input('Digite o novo cargo: '))
                     else:
                         print('Digite uma opção válida.')
 

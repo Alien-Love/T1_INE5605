@@ -1,13 +1,13 @@
 class Urna:
 
     def __init__(self,
-                 serie = int,
+                 #serie = int,
                  turno = int
                  ):
         self.__lista_candidatos = []
         self.__lista_votos = []
-        self.__eleitores = []
-        self.__serie = serie
+        #self.__eleitores = []
+        #self.__serie = serie
         self.__turno = turno
 
 
@@ -21,6 +21,11 @@ class Urna:
         self.__lista_candidatos.append(Candidato)
 
 
+    @candidatos.deleter
+    def candidatos(self, Candidato):
+        self.__lista_candidatos.remove(Candidato)
+
+
     @property
     def votos(self):
         return self.__lista_votos
@@ -31,21 +36,21 @@ class Urna:
         self.__lista_votos.append(Voto)
 
 
-    @property
-    def serie(self):
+    #@property
+    #def serie(self):
         return self.__serie
 
 
-    @serie.setter
-    def serie(self, serie):
+    #@serie.setter
+    #def serie(self, serie):
         self.__serie = serie
 
 
-    @property
-    def eleitores(self):
-        return self.__eleitores
+    #@property
+    #def eleitores(self):
+    #    return self.__eleitores
 
 
-    @eleitores.setter
-    def eleitores(self, eleitor):
-        self.eleitores.append(eleitor)
+    #@eleitores.setter
+    #def eleitores(self, eleitor):
+    #    self.eleitores.append(eleitor)
