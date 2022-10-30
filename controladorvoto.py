@@ -15,11 +15,24 @@ class ControladorVoto:
         for reitoria in reitorias:
             if reitoria in self.__controlador_principal.controlador_configuracao.configuracao.reitorias:
             #se a chave estiver presente na lista de cargos participantes
+                
                 voto = Voto()
                 voto.tipo_eleitor = self.__controlador_principal.controlador_eleitor.eleitor.tipo
-                reitorias[reitoria]()
-                #ainda falta receber voto da tela e armazenar no objeto 'voto'
-            
+                numero = reitorias[reitoria]()    #recebe o numero do candidato para a reitoria atual
+                lista_candidatos = self.__controlador_principal.controlador_candidato.listas_candidatos(reitoria)
+                #retorna a lista de candidatos existentes para a reitoria atual
+
+                if numero != '':
+                    for candidato in lista_candidatos:
+                        if candidato.codigo == numero:
+                            voto.candidato_escolhido = numero
+                            break
+                        else:
+                            voto.candidato_escolhido = 99
+                    print(voto.candidato_escolhido)#teste
+
+                elif numero == '':
+                    voto.candidato_escolhido = 00
             else:
                 self.__tela_voto.categoria_vazia()
         
