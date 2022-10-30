@@ -45,7 +45,7 @@ class TelaCandidato:
 
     def alterar_candidato(self):
         while True:
-            a = input('Digite o código do candidato a ser excluído: ')
+            a = input('Digite o código do candidato a ser alterado: ')
             confirm = input(f'Esse é o candidato que deseja alterar? {mostrar_candidato(a).nome} Digite SIM para confirmar: ')
             while True:
                 if confirm == 'SIM':
