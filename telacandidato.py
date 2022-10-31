@@ -29,7 +29,7 @@ class TelaCandidato(AbstractTela):
         nome_candidato = input('Digite o nome do novo candidato: ')
         codigo_candidato = input(f'Digite o código do candidato {nome_candidato}: ')
         chapa_candidato = input(f'Digite a chapa do candidato {nome_candidato}: ')
-        cargo_candidato = input(f'digite o cargo do candidato {nome_candidato}: ')
+        cargo_candidato = input(f'digite o cargo do candidato {nome_candidato}(reitor, prograd, propes, proex): ')
         return (codigo_candidato, chapa_candidato, nome_candidato, cargo_candidato)
 
 

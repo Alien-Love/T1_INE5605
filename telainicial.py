@@ -5,8 +5,17 @@ class TelaInicial(AbstractTela):
     def __init__(self):
         super().__init__()
     #a opcao deve ser um numero entre 0 e 4
-    def le_inteiro(self):
-        return super().le_inteiro()
+
+    def le_inteiro(self, msg: str = "",):
+        while True:
+            numero = input(msg)
+            try:
+                if int(numero) not in [1, 2, 3, 4]:
+                    raise ValueError
+                return numero
+            except ValueError:
+                print("Entrada Invalida")
+                
 
     def tela_opcoes(self):
         print("*"*20)
@@ -16,6 +25,6 @@ class TelaInicial(AbstractTela):
         print("3 - Resultados")
         print("4 - Configurar Urna")
         print("0 - Sair")
-        opcao = input("digite a opcao: ")
+        opcao = self.le_inteiro("Digite a Opcao: ")
         print("*"*20)
         return int(opcao)
