@@ -24,7 +24,7 @@ class TelaUrna:
         print(resultado_reitor)
         print('*' * 20)
 
-        [candidato.nome, candidato.cargo, votos_aluno, votos_professor, votos_tecnico]
+
     def exibe_votos_categorias(self, resultados):
         for resultado in resultados:
             print('*' * 20)
