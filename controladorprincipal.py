@@ -16,7 +16,7 @@ class ControladorPrincipal:
         self.__controlador_urna = ControladorUrna(self)
         self.__controlador_candidato = ControladorCandidato(self)
         self.__controlador_configuracao = ControladorConfiguracao(self)
-        self.__resultado = Resultado(self)
+        #self.__resultado = Resultado(self)
 
     def inicia(self):    #inicia opçao de voto, cadastro, ou resultado
         opcoes = {0: self.finaliza_sistema, 1: self.inicia_voto, 2: self.inicia_cadastro, 3: self.inicia_resultado, 4: self.inicia_configuracao}
@@ -50,7 +50,8 @@ class ControladorPrincipal:
         self.__controlador_candidato.mostra_tela_candidato()
 
     def inicia_resultado(self):
-        self.__resultado.calcular_resultado()
+        self.__controlador_urna.exibir_votos_categorias()
+        self.__controlador_urna.calcular_resultado_final()
 
     def inicia_configuracao(self):
         self.__controlador_configuracao.configurar()
