@@ -15,15 +15,15 @@ class ControladorCandidato:
     def mostra_tela_candidato(self):
         # Chama a tela baseado na resposta escolhida no menu de candidatos.
         escolha = self.__tela_candidato.mostrar_tela()
-        if escolha == 'a':
+        if escolha == '1':
             self.__tela_candidato.adicionar_candidato()
-        elif escolha == 'b':
+        elif escolha == '2':
             self.__tela_candidato.remover_candidato()
-        elif escolha == 'c':
+        elif escolha == '3':
             self.__tela_candidato.listar_candidatos(self.__controlador_urna.exibir_candidatos)
-        elif escolha == 'd':
+        elif escolha == '4':
             self.__tela_candidato.validar_dados()
-        elif escolha == 'e':
+        elif escolha == '5':
             self.__tela_candidato.alterar_candidato()
 
     @property

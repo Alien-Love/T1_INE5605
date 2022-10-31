@@ -10,15 +10,16 @@ class TelaCandidato(AbstractTela):
 
     def mostrar_tela(self):
         while True:
+            opcoes = ('1', '2', '3', '4', '5')
             print("""
-            a = adicionar novo candidato
-            b = remover um candidato já cadastrado
-            c = listar todos os candidatos
-            d = validar dados
-            e = alterar candidato existente
+            1 = adicionar novo candidato
+            2 = remover um candidato já cadastrado
+            3 = listar todos os candidatos
+            4 = validar dados
+            5 = alterar candidato existente
             """)
             option = input('digite a opção desejada: ')
-            if option.lower in ('a', 'b', 'c', 'd', 'e'):
+            if option in opcoes:
                 return option
             else:
                 print('Digite uma opção válida.')
