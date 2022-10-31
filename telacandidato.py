@@ -19,7 +19,7 @@ class TelaCandidato(AbstractTela):
             e = alterar candidato existente
             """)
             option = input('digite a opção desejada: ')
-            if option.lower in ('a', 'b', 'c', 'd', 'e'):
+            if option in ['a', 'b', 'c', 'd', 'e']:
                 return option
             else:
                 print('Digite uma opção válida.')
@@ -57,7 +57,7 @@ class TelaCandidato(AbstractTela):
                     d = cargo
                     """)
                     resposta = input('Qual dado gostaria de alterar? ')
-                    if resposta.lower in ('a', 'b', 'c', 'd'):
+                    if resposta in ['a', 'b', 'c', 'd']:
                         if resposta == 'a':
                             return(a, 'a', input('Digite o novo código: '))
                         elif resposta == 'b':
