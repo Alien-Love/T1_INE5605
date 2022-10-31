@@ -7,7 +7,7 @@ class ControladorCandidato:
 
     def __init__(self, controlador_principal):
         self.__controlador_principal = controlador_principal
-        self.__candidatos_reitor = []
+        self.__candidatos_reitor = [Candidato(32, "b", "c", "d")]
         self.__candidatos_prograd = []
         self.__candidatos_propes = []
         self.__candidatos_proex = []
@@ -38,24 +38,26 @@ class ControladorCandidato:
         info = self.__tela_candidato.adicionar_candidato()
         candidato = Candidato(info[0], info[1], info[2], info[3])
         self.__controlador_urna.urna.add_candidatos(candidato)
-        self.insere_listas_candidatos(candidato)
         # Adiciona candidato com as informações recebidas na tela de adicionar
         # candidato.
 
 
     def mudar_candidato(self):
-        info = self.__tela_candidato.alterar_candidato()
-        codigo = info[0]
-        opcao = info[1]
-        novo_valor = info[2]
-        if opcao == '1':
-            self.mostrar_candidato(codigo).__codigo = novo_valor
-        elif opcao == '2':
-            self.mostrar_candidato(codigo).__chapa = novo_valor
-        elif opcao == '3':
-            self.mostrar_candidato(codigo).__nome = novo_valor
-        elif opcao == '4':
-            self.mostrar_candidato(codigo).__cargo = novo_valor
+        try:
+            info = self.__tela_candidato.alterar_candidato()
+            codigo = info[0]
+            opcao = info[1]
+            novo_valor = info[2]
+            if opcao == '1':
+                self.mostrar_candidato(codigo).__codigo = novo_valor
+            elif opcao == '2':
+                self.mostrar_candidato(codigo).__chapa = novo_valor
+            elif opcao == '3':
+                self.mostrar_candidato(codigo).__nome = novo_valor
+            elif opcao == '4':
+                self.mostrar_candidato(codigo).__cargo = novo_valor
+        except Exception:
+            pass
             # setter de diferentes atributos baseado na opção escolhida no menu de
             # alteração de candidato.
 
@@ -64,8 +66,10 @@ class ControladorCandidato:
     # remove o candidato escolhido na tela de exclusão de candidatos.
         codigo_do_candidato = self.__tela_candidato.remover_candidato()
         candidato = self.mostrar_candidato(codigo_do_candidato)
-        self.__controlador_urna.excluir_candidato(candidato)
-        self.remove_listas_candidatos(candidato)
+        try:
+            self.__controlador_urna.urna.remover_candidatos(candidato)
+        except ValueError:
+            pass
 
 
     def listar_candidatos(self):
@@ -87,27 +91,3 @@ class ControladorCandidato:
             "propes": self.__candidatos_propes, "proex": self.__candidatos_proex
             }
         return categorias[categoria]
-    
-    def insere_listas_candidatos(self, candidato):
-            categorias = {
-                "reitoria": self.__candidatos_reitor, "prograd": self.__candidatos_prograd,
-                "propes": self.__candidatos_propes, "proex": self.__candidatos_proex
-            }
-            for categoria in categorias:
-                if candidato.cargo == categorias[categoria]:
-                    categoria.append(candidato)
-                    print()
-                else:
-                    pass
-    
-    def remove_listas_candidatos(self, candidato):
-        def insere_listas_candidatos(self, candidato):
-            categorias = {
-                "reitoria": self.__candidatos_reitor, "prograd": self.__candidatos_prograd,
-                "propes": self.__candidatos_propes, "proex": self.__candidatos_proex
-            }
-            for categoria in categorias:
-                if candidato in categorias[categoria]:
-                    categoria.remove(candidato)
-                else:
-                    pass

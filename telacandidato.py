@@ -11,18 +11,22 @@ class TelaCandidato(AbstractTela):
     def mostrar_tela(self):
         while True:
             opcoes = ('1', '2', '3', '4', '5')
+            print('*'*20)
             print("""
-            1 = adicionar novo candidato
-            2 = remover um candidato já cadastrado
-            3 = listar todos os candidatos
-            4 = validar dados
-            5 = alterar candidato existente
+1 = adicionar novo candidato
+2 = remover um candidato já cadastrado
+3 = listar todos os candidatos
+4 = validar dados
+5 = alterar candidato existente
             """)
             option = input('digite a opção desejada: ')
+            print('*' * 20)
             if option in opcoes:
                 return option
             else:
+                print('*' * 20)
                 print('Digite uma opção válida.')
+                print('*' * 20)
 
 
     def adicionar_candidato(self):
@@ -34,8 +38,11 @@ class TelaCandidato(AbstractTela):
 
 
     def remover_candidato(self):
-        codigo_candidato_removido = input('Digite o codigo do candidato a ser removido: ')
-        return codigo_candidato_removido
+        while True:
+            codigo_candidato_removido = input('Digite o codigo do candidato a ser removido: ')
+            confirmacao = input(f'Digite CONFIRMA para excluir o candidato de código {codigo_candidato_removido}: ')
+            if confirmacao == 'CONFIRMA':
+                return codigo_candidato_removido
 
 
     def listar_candidatos(self, candidatos):
@@ -46,6 +53,7 @@ class TelaCandidato(AbstractTela):
 
 
     def alterar_candidato(self):
+        print('*' * 20)
         while True:
             a = input('Digite o código do candidato a ser alterado: ')
             confirm = input(f'Esse é o código do candidato que deseja alterar? {a} Digite SIM para confirmar: ')

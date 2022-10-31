@@ -20,9 +20,8 @@ class Urna:
         self.__lista_candidatos.append(candidato)
 
 
-    @candidatos.deleter
-    def candidatos(self):
-        self.__lista_candidatos.remove(self)
+    def remover_candidatos(self, candidato):
+        self.__lista_candidatos.remove(candidato)
 
 
     @property
