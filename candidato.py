@@ -16,8 +16,8 @@ class Candidato:
 
 
     @codigo.setter
-    def codigo(self, valor):
-        self.__codigo = valor
+    def codigo(self, codigo):
+        self.__codigo = codigo
 
 
     @property
@@ -26,8 +26,8 @@ class Candidato:
 
 
     @nome.setter
-    def nome(self, valor):
-        self.__nome = valor
+    def nome(self, nome):
+        self.__nome = nome
 
 
     @property
@@ -36,5 +36,15 @@ class Candidato:
 
 
     @cargo.setter
-    def cargo(self, valor):
-        self.__cargo = valor
+    def cargo(self, cargo):
+        self.__cargo = cargo
+
+
+    @property
+    def chapa(self):
+        return self.__chapa
+
+
+    @chapa.setter
+    def chapa(self, chapa):
+        self.__chapa = chapa

@@ -1,7 +1,6 @@
 from candidato import Candidato
 from telacandidato import TelaCandidato
-#from controladorprincipal import ControladorCandidato
-import urna
+from controladorurna import ControladorUrna
 
 class ControladorCandidato:
 
@@ -11,42 +10,60 @@ class ControladorCandidato:
         self.__candidatos_prograd = []
         self.__candidatos_propes = []
         self.__candidatos_proex = []
+        self.__tela_candidato = TelaCandidato()
+        self.__controlador_urna = ControladorUrna()
 
     def mostra_tela_candidato(self):
-        escolha = TelaCandidato.mostrar_tela()
+        # Chama a tela baseado na resposta escolhida no menu de candidatos.
+        escolha = self.__tela_candidato.mostrar_tela()
         if escolha == 'a':
-            TelaCandidato.adicionar_candidato()
+            self.__tela_candidato.adicionar_candidato()
         elif escolha == 'b':
-            TelaCandidato.remover_candidato()
+            self.__tela_candidato.remover_candidato()
         elif escolha == 'c':
-            TelaCandidato.listar_candidatos()
+            self.__tela_candidato.listar_candidatos()
         elif escolha == 'd':
-            TelaCandidato.validar_dados()
+            self.__tela_candidato.validar_dados()
         elif escolha == 'e':
-            TelaCandidato.alterar_candidato()
+            self.__tela_candidato.alterar_candidato()
 
     @property
     def adicionar_candidato(self, info):
-        pass
+        self.__controlador_urna.incluir_candidato(Candidato(info[0], info[1],
+                                                            info[2], info[3]))
+        # Adiciona candidato com as informações recebidas na tela de adicionar
+        # candidato.
 
 
     @adicionar_candidato.setter
-    def adicionar_candidato(self, Candidato):
-        pass
+    def adicionar_candidato(self, codigo, opcao, novo_valor):
+        if opcao == 'a':
+            self.mostrar_candidato(codigo).__codigo = novo_valor
+        elif opcao == 'b':
+            self.mostrar_candidato(codigo).__chapa = novo_valor
+        elif opcao == 'c':
+            self.mostrar_candidato(codigo).__nome = novo_valor
+        elif opcao == 'd':
+            self.mostrar_candidato(codigo).__cargo = novo_valor
+        # setter de diferentes atributos baseado na opção escolhida no menu de
+        # alteração de candidato.
 
 
     @adicionar_candidato.deleter
-    def adicionar_candidato(self, Candidato):
-        pass
+    def adicionar_candidato(self):
+    # remove o candidato escolhido na tela de exclusão de candidatos.
+        codigo_do_candidato = self.__tela_candidato.remover_candidato()
+        candidato = self.mostrar_candidato(codigo_do_candidato)
+        self.__controlador_urna.excluir_candidato(candidato)
 
 
     def listar_candidatos(self):
-        candidatos = Urna.lista_candidatos
-        return candidatos
+        candidatos = self.__controlador_urna.exibir_candidatos()
+        self.__tela_candidato.listar_candidatos(candidatos)
 
 
-    def mostrar_candidato(codigo):
-        for candidato in urna.lista_candidatos:
+    def mostrar_candidato(self, codigo):
+        for candidato in self.__controlador_urna.exibir_candidatos():
             if candidato.codigo == codigo:
                 return candidato
 

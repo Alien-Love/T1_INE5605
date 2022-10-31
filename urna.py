@@ -1,40 +1,56 @@
 class Urna:
 
     def __init__(self,
-                 lista_candidatos = [],
-                 lista_votos = [],
-                 serie = int,
-                 eleitores = [],
-                 turno = int):
-        self.__serie = serie
+                 #serie = int,
+                 turno = int
+                 ):
+        self.__lista_candidatos = []
+        self.__lista_votos = []
+        #self.__eleitores = []
+        #self.__serie = serie
         self.__turno = turno
 
 
     @property
     def candidatos(self):
-        pass
+        return self.__lista_candidatos
 
 
     @candidatos.setter
-    def candidatos(self, candidatos):
-        pass
+    def candidatos(self, Candidato):
+        self.__lista_candidatos.append(Candidato)
+
+
+    @candidatos.deleter
+    def candidatos(self, Candidato):
+        self.__lista_candidatos.remove(Candidato)
 
 
     @property
     def votos(self):
-        pass
+        return self.__lista_votos
 
 
     @votos.setter
     def votos(self, Voto):
-        pass
+        self.__lista_votos.append(Voto)
 
 
-    @property
-    def serie(self):
-        pass
+    #@property
+    #def serie(self):
+        return self.__serie
 
 
-    @serie.setter
-    def serie(self):
-        pass
+    #@serie.setter
+    #def serie(self, serie):
+        self.__serie = serie
+
+
+    #@property
+    #def eleitores(self):
+    #    return self.__eleitores
+
+
+    #@eleitores.setter
+    #def eleitores(self, eleitor):
+    #    self.eleitores.append(eleitor)
