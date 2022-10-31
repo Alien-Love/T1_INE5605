@@ -10,8 +10,12 @@ class TelaVoto(AbstractTela):
 
     def voto_reitor(self):
         print("Digite Seu Voto")
-        numero = input("Reitoria: ")
-        return numero
+        try:
+            nmro = int(input("Reitoria: "))
+            return nmro
+        except ValueError:
+            nmro = 00
+            return nmro
 
     def voto_proreitor_grad(self):
         numero = input("Pro-Reitoria de Graduação: ")

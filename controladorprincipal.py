@@ -2,10 +2,9 @@ import sys
 from telainicial import TelaInicial
 from controladoreleitor import ControladorEleitor
 from controladorvoto import ControladorVoto
-#from controladorurna import ControladorUrna
+from controladorurna import ControladorUrna
 from controladorcandidato import ControladorCandidato
 from resultado import Resultado
-from eleitor import Eleitor
 from controladorconfiguracao import ControladorConfiguracao
 
 class ControladorPrincipal:
@@ -14,7 +13,7 @@ class ControladorPrincipal:
         self.__tela_inicial = TelaInicial()
         self.__controlador_eleitor = ControladorEleitor(self)
         self.__controlador_voto = ControladorVoto(self)
-        #self.__controlador_urna = ControladorUrna(self)
+        self.__controlador_urna = ControladorUrna(self)
         self.__controlador_candidato = ControladorCandidato(self)
         self.__controlador_configuracao = ControladorConfiguracao(self)
         self.__resultado = Resultado(self)
@@ -37,6 +36,10 @@ class ControladorPrincipal:
     @property
     def controlador_candidato(self):
         return self.__controlador_candidato
+
+    @property
+    def controlador_urna(self):
+        return self.__controlador_urna
 
     def inicia_voto(self):
         self.__controlador_eleitor.inclui_eleitor()

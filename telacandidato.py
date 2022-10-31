@@ -1,8 +1,13 @@
-import controladorcandidato
-#from controladorcandidato import mostrar_candidato, listar_candidatos as lc, ControladorCandidato
+#import controladorcandidato
+from abstracttela import AbstractTela
 
+class TelaCandidato(AbstractTela):
 
-class TelaCandidato:
+    def __init__(self):
+        super().__init__()
+
+    def le_inteiro(self, valor):
+        return super().le_inteiro(valor)
 
     def mostrar_tela(self):
         while True:
@@ -30,24 +35,19 @@ class TelaCandidato:
 
     def remover_candidato(self):
         codigo_candidato_removido = input('Digite o codigo do candidato a ser removido: ')
-        confirm = input(f'Digite SIM para remover o candidato {mostrar_candidato(codigo_candidato_removido).nome}:')
-        if confirm == 'SIM':
-            return codigo_candidato_removido
-        else:
-            return ('Nenhum candidato foi removido')
+        return codigo_candidato_removido
 
 
-    def listar_candidatos(self):
-        candidatos = lc()
+    def listar_candidatos(self, candidatos):
         for candidato in candidatos:
-            print(f'Candidato: {candidato.nome} - Código: {candidato.codigo}')
+            print(f'Candidato: {candidato.nome} - Cargo: {candidato.cargo}')
         pass
 
 
     def alterar_candidato(self):
         while True:
-            a = input('Digite o código do candidato a ser excluído: ')
-            confirm = input(f'Esse é o candidato que deseja alterar? {mostrar_candidato(a).nome} Digite SIM para confirmar: ')
+            a = input('Digite o código do candidato a ser alterado: ')
+            confirm = input(f'Esse é o código do candidato que deseja alterar? {a} Digite SIM para confirmar: ')
             while True:
                 if confirm == 'SIM':
                     print("""
@@ -59,16 +59,15 @@ class TelaCandidato:
                     resposta = input('Qual dado gostaria de alterar? ')
                     if resposta.lower in ('a', 'b', 'c', 'd'):
                         if resposta == 'a':
-                            mostrar_candidato(a).codigo = input('Digite o novo código: ')
+                            return(a, 'a', input('Digite o novo código: '))
                         elif resposta == 'b':
-                            mostrar_candidato(a).chapa = input('Digite a nova chapa: ')
+                            return(a, 'b', input('Digite a nova chapa: '))
                         elif resposta == 'c':
-                            mostrar_candidato(a).nome = input('Digite o novo nome: ')
+                            return(a, 'c', input('Digite o novo nome: '))
                         elif resposta == 'd':
-                            mostrar_candidato(a).cargo = input('Digite o novo cargo: ')
+                            return(a, 'd', input('Digite o novo cargo: '))
                     else:
                         print('Digite uma opção válida.')
-
 
 
     def validar_dados(self):

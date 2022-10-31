@@ -25,19 +25,21 @@ class ControladorVoto:
                 voto.tipo_eleitor = self.__controlador_principal.controlador_eleitor.eleitor.tipo
                 numero = reitorias[reitoria]()    #recebe o numero do candidato para a reitoria atual
                 lista_candidatos = self.__controlador_principal.controlador_candidato.listas_candidatos(reitoria)
+                #inteiro = isinstance(int(numero), int)
                 #retorna a lista de candidatos existentes para a reitoria atual
 
-                if numero != '':
+                if numero != 00:
                     for candidato in lista_candidatos:
                         if candidato.codigo == numero:
                             voto.candidato_escolhido = numero
-                            break
-                        else:
-                            voto.candidato_escolhido = 99
-                    print(voto.candidato_escolhido)#teste
 
-                elif numero == '':
+                        else:   #caso numero digitado nao pertenca a candidato ao cargo
+                            voto.candidato_escolhido = 99 
+                        print("voto:::", voto.candidato_escolhido)#teste
+
+                else:   #caso no aseja informado um numero
                     voto.candidato_escolhido = 00
+                    
             else:
                 self.__tela_voto.categoria_vazia()
             

@@ -1,6 +1,5 @@
 from candidato import Candidato
 from telacandidato import TelaCandidato
-from controladorurna import ControladorUrna
 
 class ControladorCandidato:
 
@@ -11,7 +10,7 @@ class ControladorCandidato:
         self.__candidatos_propes = []
         self.__candidatos_proex = []
         self.__tela_candidato = TelaCandidato()
-        self.__controlador_urna = ControladorUrna()
+        self.__controlador_urna = self.__controlador_principal.controlador_urna
 
     def mostra_tela_candidato(self):
         # Chama a tela baseado na resposta escolhida no menu de candidatos.
@@ -69,7 +68,7 @@ class ControladorCandidato:
 
     def listas_candidatos(self, categoria):
         #retorna a lista referente a chave fornecida;
-        #a lista retornada e passada para a funcao 'adiciona voto', onde e verificado se
+        #a lista retornada eh passada para a funcao 'adiciona voto', onde e verificado se
         #o numero do voto corresponde ao numero de algum candidato da categoria especificada
         categorias = {
             "reitoria": self.__candidatos_reitor, "prograd": self.__candidatos_prograd,
