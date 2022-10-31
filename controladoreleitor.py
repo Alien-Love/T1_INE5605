@@ -15,15 +15,13 @@ class ControladorEleitor:
         eleitor = Eleitor(dados[0], dados[1], dados[2]) #pega dados do eleitor a partir da tela de cadastro
         self.__eleitores.append(eleitor)
         self.__eleitor = eleitor #armazena o eleitor criado pela função na classe ControladorEleitor
-        print("lista de eleitores: ", self.__eleitores) #teste
-        print("tipo eleitor", eleitor.tipo) #teste
+       
             
     def ja_votou(self, eleitor):
         eleitor = self.__eleitor
-        eleitor.votou = True
-        print("eleitor votou: ", eleitor.votou) #teste
+        eleitor.votou = True 
         self.__eleitor = None
-        print("self.__eleitor settado para: ", self.__eleitor) #teste
+       
     
     @property
     def eleitores(self):
