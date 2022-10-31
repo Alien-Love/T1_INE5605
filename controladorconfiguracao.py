@@ -22,6 +22,9 @@ class ControladorConfiguracao:
             self.__configuracao = configuracao
         
         else: #configuracao para o segundo turno
+            lista_eleitores = self.__controlador_principal.controlador_eleitor.eleitores
+            for eleitor in lista_eleitores:
+                eleitor.ja_votou = False #alterna o estado do parametro, permitindo que os eleitores votem novamente
             configuracao = Configuracao(dados[0], dados[1], dados[2], [])
             self.__configuracao = configuracao
             lista_cargos = dados[3] #recebe os cargos desejados pelo input da tela

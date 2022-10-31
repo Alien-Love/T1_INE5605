@@ -8,6 +8,10 @@ class ControladorVoto:
         self.__tela_voto = TelaVoto()
         self.__lista_votos = []
         
+    @property
+    def lista_votos(self):
+        return self.__lista_votos
+
     def adiciona_voto(self):
 
         reitorias = {"reitoria": self.__tela_voto.voto_reitor, "prograd": self.__tela_voto.voto_proreitor_grad,

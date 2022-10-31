@@ -1,5 +1,5 @@
 import controladorcandidato
-from controladorcandidato import mostrar_candidato, listar_candidatos as lc, ControladorCandidato
+#from controladorcandidato import mostrar_candidato, listar_candidatos as lc, ControladorCandidato
 
 
 class TelaCandidato:

@@ -17,7 +17,7 @@ class ControladorEleitor:
         self.__eleitor = eleitor #armazena o eleitor criado pela função na classe ControladorEleitor
         print(self.__eleitores) #teste
         print(eleitor.tipo) #teste
-
+            
     def ja_votou(self, eleitor):
         eleitor = self.__eleitor
         eleitor.votou = True

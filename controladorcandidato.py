@@ -51,6 +51,9 @@ class ControladorCandidato:
                 return candidato
 
     def listas_candidatos(self, categoria):
+        #retorna a lista referente a chave fornecida;
+        #a lista retornada e passada para a funcao 'adiciona voto', onde e verificado se
+        #o numero do voto corresponde ao numero de algum candidato da categoria especificada
         categorias = {
             "reitoria": self.__candidatos_reitor, "prograd": self.__candidatos_prograd,
             "propes": self.__candidatos_propes, "proex": self.__candidatos_proex

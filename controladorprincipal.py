@@ -39,7 +39,6 @@ class ControladorPrincipal:
         return self.__controlador_candidato
 
     def inicia_voto(self):
-
         self.__controlador_eleitor.inclui_eleitor()
         self.__controlador_voto.adiciona_voto()
         self.__controlador_eleitor.ja_votou(self.__controlador_eleitor.eleitor)
@@ -52,6 +51,6 @@ class ControladorPrincipal:
 
     def inicia_configuracao(self):
         self.__controlador_configuracao.configurar()
-    
+
     def finaliza_sistema(self):
         sys.exit()
