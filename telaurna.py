@@ -11,7 +11,25 @@ class TelaUrna:
 
 
     def exibe_resultado(self, resultado_reitor, resultado_pr_grad, resultado_pr_pesq, resultado_pr_ext):
-        print(f"O candidato {resultado_reitor[0]} ganhou para {resultado_reitor[1]} com {resultado_reitor[2]} votos")
-        print(f"O candidato {resultado_pr_grad[0]} ganhou para {resultado_pr_grad[1]} com {resultado_pr_grad[2]} votos")
-        print(f"O candidato {resultado_pr_pesq[0]} ganhou para {resultado_pr_pesq[1]} com {resultado_pr_pesq[2]} votos")
-        print(f"O candidato {resultado_pr_ext[0]} ganhou para {resultado_pr_ext[1]} com {resultado_pr_ext[2]} votos")
+        print('Resultados - reitor')
+        print(resultado_reitor)
+        print('*'*20)
+        print('Resultados - prograd')
+        print(resultado_reitor)
+        print('*' * 20)
+        print('Resultados - propesq')
+        print(resultado_reitor)
+        print('*' * 20)
+        print('Resultados - proext')
+        print(resultado_reitor)
+        print('*' * 20)
+
+        [candidato.nome, candidato.cargo, votos_aluno, votos_professor, votos_tecnico]
+    def exibe_votos_categorias(self, resultados):
+        for resultado in resultados:
+            print('*' * 20)
+            print(f'O candidato {resultado[0]} recebeu os seguintes votos para o cargo {resultado[1]}:')
+            print(f'votos de alunos: {resultado[2]}')
+            print(f'votos de professores: {resultado[3]}')
+            print(f'votos de tecnicos: {resultado[4]}')
+            print('*'*20)

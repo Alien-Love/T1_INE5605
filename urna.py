@@ -36,14 +36,18 @@ class Urna:
         self.__lista_votos.append(Voto)
 
 
+    def turno(self, turno):
+        self.__turno = turno
+
+
     #@property
     #def serie(self):
-        return self.__serie
+    #    return self.__serie
 
 
     #@serie.setter
     #def serie(self, serie):
-        self.__serie = serie
+    #    self.__serie = serie
 
 
     #@property
