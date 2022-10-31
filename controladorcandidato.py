@@ -43,18 +43,21 @@ class ControladorCandidato:
 
 
     def mudar_candidato(self):
-        info = self.__tela_candidato.alterar_candidato()
-        codigo = info[0]
-        opcao = info[1]
-        novo_valor = info[2]
-        if opcao == '1':
-            self.mostrar_candidato(codigo).__codigo = novo_valor
-        elif opcao == '2':
-            self.mostrar_candidato(codigo).__chapa = novo_valor
-        elif opcao == '3':
-            self.mostrar_candidato(codigo).__nome = novo_valor
-        elif opcao == '4':
-            self.mostrar_candidato(codigo).__cargo = novo_valor
+        try:
+            info = self.__tela_candidato.alterar_candidato()
+            codigo = info[0]
+            opcao = info[1]
+            novo_valor = info[2]
+            if opcao == '1':
+                self.mostrar_candidato(codigo).__codigo = novo_valor
+            elif opcao == '2':
+                self.mostrar_candidato(codigo).__chapa = novo_valor
+            elif opcao == '3':
+                self.mostrar_candidato(codigo).__nome = novo_valor
+            elif opcao == '4':
+                self.mostrar_candidato(codigo).__cargo = novo_valor
+        except Exception:
+            pass
             # setter de diferentes atributos baseado na opção escolhida no menu de
             # alteração de candidato.
 
@@ -63,7 +66,10 @@ class ControladorCandidato:
     # remove o candidato escolhido na tela de exclusão de candidatos.
         codigo_do_candidato = self.__tela_candidato.remover_candidato()
         candidato = self.mostrar_candidato(codigo_do_candidato)
-        self.__controlador_urna.excluir_candidato(candidato)
+        try:
+            self.__controlador_urna.urna.remover_candidatos(candidato)
+        except ValueError:
+            pass
 
 
     def listar_candidatos(self):
