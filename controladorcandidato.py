@@ -20,7 +20,7 @@ class ControladorCandidato:
         elif escolha == 'b':
             self.__tela_candidato.remover_candidato()
         elif escolha == 'c':
-            self.__tela_candidato.listar_candidatos()
+            self.__tela_candidato.listar_candidatos(self.__)
         elif escolha == 'd':
             self.__tela_candidato.validar_dados()
         elif escolha == 'e':
