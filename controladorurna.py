@@ -121,4 +121,4 @@ class ControladorUrna:
 
 
     def exibir_turno(self):
-        return self.__urna.turno()
+        return self.__controlador_principal.controlador_configuracao.configuracao.turno

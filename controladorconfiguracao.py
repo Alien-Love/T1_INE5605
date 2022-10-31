@@ -29,7 +29,8 @@ class ControladorConfiguracao:
             self.__configuracao = configuracao
             lista_cargos = dados[3] #recebe os cargos desejados pelo input da tela
             lista_reitorias.clear() #limpa lista que armazena os cargos participantes
-
+            lista_eleitores.clear() #limpa lista para receber possiveis eleitores nao votantes no primeiro turno
+            
             for i in range(len(lista_cargos)):
                 lista_reitorias.append(rei_torias.get(lista_cargos[i]))
                 #o objeto sera passado para a declaracao if dentro da funcao 'adiciona_voto'

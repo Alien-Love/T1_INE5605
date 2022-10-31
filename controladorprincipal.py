@@ -23,8 +23,12 @@ class ControladorPrincipal:
 
         while True:
             opcao = (self.__tela_inicial.tela_opcoes())
-            opcoes[opcao]()
-
+            try:
+                if opcao == 1 and self.__controlador_configuracao.configuracao.turno == None:
+                    raise Exception
+                opcoes[opcao]()
+            except Exception:
+                self.__tela_inicial.erro_configuracao()
     @property
     def controlador_eleitor(self):
         return self.__controlador_eleitor
@@ -44,11 +48,27 @@ class ControladorPrincipal:
     @property
     def resultado(self):
         return self.__resultado
-        
+
     def inicia_voto(self):
-        self.__controlador_eleitor.inclui_eleitor()
-        self.__controlador_voto.adiciona_voto()
-        self.__controlador_eleitor.ja_votou(self.__controlador_eleitor.eleitor)
+        
+        eleitores = len(self.__controlador_eleitor.eleitores)
+        x = 0
+
+        while True:
+            try:
+                if (self.controlador_configuracao.configuracao.quantia_eleitores) < (eleitores): 
+                    raise Exception                   
+                self.__controlador_eleitor.inclui_eleitor()
+                self.__controlador_voto.adiciona_voto()
+                self.__controlador_eleitor.ja_votou(self.__controlador_eleitor.eleitor)
+                x += 1
+                break
+                                    
+            except Exception:
+                self.__tela_inicial.votacao_encerrada()
+                x += 1
+                break
+                
 
     def inicia_cadastro(self):
         self.__controlador_candidato.mostra_tela_candidato()

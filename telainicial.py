@@ -4,19 +4,18 @@ class TelaInicial(AbstractTela):
 
     def __init__(self):
         super().__init__()
-    #a opcao deve ser um numero entre 0 e 4
 
+    #a opcao deve ser um numero entre 0 e 4
     def le_inteiro(self, msg: str = "",):
         while True:
             numero = input(msg)
             try:
-                if int(numero) not in [1, 2, 3, 4]:
+                if int(numero) not in [0, 1, 2, 3, 4]:
                     raise ValueError
                 return numero
             except ValueError:
                 print("Entrada Invalida")
                 
-
     def tela_opcoes(self):
         print("*"*20)
         print("Urna Eletronica")
@@ -28,3 +27,9 @@ class TelaInicial(AbstractTela):
         opcao = self.le_inteiro("Digite a Opcao: ")
         print("*"*20)
         return int(opcao)
+
+    def erro_configuracao(self):
+        print("A urna nao foi configurada")
+
+    def votacao_encerrada(self):
+        print("votacao Encerrada")
