@@ -1,5 +1,6 @@
 from candidato import Candidato
 from telacandidato import TelaCandidato
+from urna import Urna
 from controladorurna import ControladorUrna
 
 class ControladorCandidato:
@@ -11,6 +12,7 @@ class ControladorCandidato:
         self.__candidatos_propes = []
         self.__candidatos_proex = []
         self.__tela_candidato = TelaCandidato()
+        self.__urna = Urna
         self.__controlador_urna = ControladorUrna
 
     def mostra_tela_candidato(self):
@@ -35,22 +37,23 @@ class ControladorCandidato:
     def adicionar_candidato(self):
         info = self.__tela_candidato.adicionar_candidato()
         candidato = Candidato(info[0], info[1], info[2], info[3])
-        self.__controlador_urna.incluir_candidato(candidato)
+        self.__urna.add_candidatos()
         # Adiciona candidato com as informações recebidas na tela de adicionar
         # candidato.
 
 
-    def mudar_candidato(self, info):
+    def mudar_candidato(self):
+        info = self.__tela_candidato.alterar_candidato()
         codigo = info[0]
         opcao = info[1]
         novo_valor = info[2]
-        if opcao == 'a':
+        if opcao == '1':
             self.mostrar_candidato(codigo).__codigo = novo_valor
-        elif opcao == 'b':
+        elif opcao == '2':
             self.mostrar_candidato(codigo).__chapa = novo_valor
-        elif opcao == 'c':
+        elif opcao == '3':
             self.mostrar_candidato(codigo).__nome = novo_valor
-        elif opcao == 'd':
+        elif opcao == '4':
             self.mostrar_candidato(codigo).__cargo = novo_valor
             # setter de diferentes atributos baseado na opção escolhida no menu de
             # alteração de candidato.

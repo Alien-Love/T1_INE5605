@@ -16,9 +16,8 @@ class Urna:
         return self.__lista_candidatos
 
 
-    @candidatos.setter
-    def candidatos(self, Candidato):
-        self.__lista_candidatos.append(Candidato)
+    def add_candidatos(self, candidato):
+        self.__lista_candidatos.append(candidato)
 
 
     @candidatos.deleter

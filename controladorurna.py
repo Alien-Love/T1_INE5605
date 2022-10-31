@@ -15,8 +15,8 @@ class ControladorUrna:
     #    self.__urna.__eleitores = Eleitor
 
 
-    def incluir_candidato(self, candidato):
-        self.__urna.candidatos(candidato)
+    #def incluir_candidato(self, candidato):
+    #    self.__urna.add_candidatos(candidato)
 
     #def incluir_voto(self, Voto):
     #    self.__urna.__votos = Voto

@@ -49,30 +49,29 @@ class TelaCandidato(AbstractTela):
         while True:
             a = input('Digite o código do candidato a ser alterado: ')
             confirm = input(f'Esse é o código do candidato que deseja alterar? {a} Digite SIM para confirmar: ')
-            while True:
-                if confirm == 'SIM':
-                    print("""
-                    a = codigo
-                    b = chapa
-                    c = nome
-                    d = cargo
+            if confirm == 'SIM':
+                print("""
+                    1 = codigo
+                    2 = chapa
+                    3 = nome
+                    4 = cargo
                     """)
-                    resposta = input('Qual dado gostaria de alterar? ')
-                    if resposta.lower in ('a', 'b', 'c', 'd'):
-                        if resposta == 'a':
-                            info = (a, 'a', input('Digite o novo código: '))
-                            return info
-                        elif resposta == 'b':
-                            info = (a, 'b', input('Digite a nova chapa: '))
-                            return info
-                        elif resposta == 'c':
-                            info = (a, 'c', input('Digite o novo nome: '))
-                            return info
-                        elif resposta == 'd':
-                            info = (a, 'd', input('Digite o novo cargo: '))
-                            return info
-                    else:
-                        print('Digite uma opção válida.')
+                resposta = input('Qual dado gostaria de alterar? ')
+                if resposta in ('1', '2', '3', '4'):
+                    if resposta == '1':
+                        info = (a, '1', input('Digite o novo código: '))
+                        return info
+                    elif resposta == '2':
+                        info = (a, '2', input('Digite a nova chapa: '))
+                        return info
+                    elif resposta == '3':
+                        info = (a, '3', input('Digite o novo nome: '))
+                        return info
+                    elif resposta == '4':
+                        info = (a, '4', input('Digite o novo cargo: '))
+                        return info
+                else:
+                    print('Digite uma opção válida.')
 
 
     def validar_dados(self):
