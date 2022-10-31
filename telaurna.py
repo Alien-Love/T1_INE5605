@@ -15,13 +15,13 @@ class TelaUrna:
         print(resultado_reitor)
         print('*'*20)
         print('Resultados - prograd')
-        print(resultado_reitor)
+        print(resultado_pr_grad)
         print('*' * 20)
         print('Resultados - propesq')
-        print(resultado_reitor)
+        print(resultado_pr_pesq)
         print('*' * 20)
         print('Resultados - proext')
-        print(resultado_reitor)
+        print(resultado_pr_ext)
         print('*' * 20)
 
 
