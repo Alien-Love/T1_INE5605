@@ -22,8 +22,8 @@ class Urna:
 
 
     @candidatos.deleter
-    def candidatos(self, Candidato):
-        self.__lista_candidatos.remove(Candidato)
+    def candidatos(self):
+        self.__lista_candidatos.remove(self)
 
 
     @property
@@ -36,6 +36,12 @@ class Urna:
         self.__lista_votos.append(Voto)
 
 
+    @property
+    def turno(self):
+        return self.__turno
+
+
+    @turno.setter
     def turno(self, turno):
         self.__turno = turno
 

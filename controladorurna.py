@@ -28,7 +28,7 @@ class ControladorUrna:
 
 
     def exibir_candidatos(self):
-        self.__urna.candidatos()
+        return self.__urna.candidatos()
 
 
     def exibir_votos_categorias(self):
@@ -44,7 +44,7 @@ class ControladorUrna:
                     if voto.tipo_eleitor == 'aluno':
                         votos_aluno += 1
                     elif voto.tipo_eleitor == 'professor':
-                        votos_professore += 1
+                        votos_professor += 1
                     elif voto.tipo_eleitor == 'tecnico':
                         votos_tecnico += 1
             resultado = [candidato.nome, candidato.cargo, votos_aluno, votos_professor, votos_tecnico]
@@ -115,3 +115,7 @@ class ControladorUrna:
     def escolher_turno(self):
         turno = self.__tela_urna.escolha_turno()
         self.__urna.turno(turno)
+
+
+    def exibir_turno(self):
+        return self.__urna.turno()

@@ -1,4 +1,3 @@
-#import controladorcandidato
 from abstracttela import AbstractTela
 
 class TelaCandidato(AbstractTela):
@@ -59,13 +58,17 @@ class TelaCandidato(AbstractTela):
                     resposta = input('Qual dado gostaria de alterar? ')
                     if resposta.lower in ('a', 'b', 'c', 'd'):
                         if resposta == 'a':
-                            return(a, 'a', input('Digite o novo código: '))
+                            info = (a, 'a', input('Digite o novo código: '))
+                            return info
                         elif resposta == 'b':
-                            return(a, 'b', input('Digite a nova chapa: '))
+                            info = (a, 'b', input('Digite a nova chapa: '))
+                            return info
                         elif resposta == 'c':
-                            return(a, 'c', input('Digite o novo nome: '))
+                            info = (a, 'c', input('Digite o novo nome: '))
+                            return info
                         elif resposta == 'd':
-                            return(a, 'd', input('Digite o novo cargo: '))
+                            info = (a, 'd', input('Digite o novo cargo: '))
+                            return info
                     else:
                         print('Digite uma opção válida.')
 
