@@ -39,7 +39,8 @@ class TelaCandidato(AbstractTela):
 
 
     def listar_candidatos(self, candidatos):
-        for candidato in candidatos:
+        info_candidatos = candidatos
+        for candidato in info_candidatos:
             print(f'Candidato: {candidato.nome} - Cargo: {candidato.cargo}')
         pass
 
