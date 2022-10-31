@@ -7,13 +7,13 @@ class ControladorCandidato:
 
     def __init__(self, controlador_principal):
         self.__controlador_principal = controlador_principal
-        self.__candidatos_reitor = []
+        self.__candidatos_reitor = [Candidato(32, "b", "c", "d")]
         self.__candidatos_prograd = []
         self.__candidatos_propes = []
         self.__candidatos_proex = []
         self.__tela_candidato = TelaCandidato()
         self.__urna = Urna
-        self.__controlador_urna = ControladorUrna
+        self.__controlador_urna = self.__controlador_principal.controlador_urna
 
     def mostra_tela_candidato(self):
         # Chama a tela baseado na resposta escolhida no menu de candidatos.
@@ -37,7 +37,7 @@ class ControladorCandidato:
     def adicionar_candidato(self):
         info = self.__tela_candidato.adicionar_candidato()
         candidato = Candidato(info[0], info[1], info[2], info[3])
-        self.__urna.add_candidatos()
+        self.__controlador_urna.urna.add_candidatos(candidato)
         # Adiciona candidato com as informações recebidas na tela de adicionar
         # candidato.
 

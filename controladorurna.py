@@ -25,6 +25,9 @@ class ControladorUrna:
     #def excluir_candidato(self, candidato):
     #    pass
 
+    @property
+    def urna(self):
+        return self.__urna
 
     @property
     def exibir_candidatos(self):
@@ -112,9 +115,9 @@ class ControladorUrna:
                                          resultado_final_proex)
 
 
-    def escolher_turno(self):
-        turno = self.__tela_urna.escolha_turno()
-        self.__urna.turno(turno)
+    #def escolher_turno(self):
+        #turno = self.__tela_urna.escolha_turno()
+        #self.__urna.turno(turno)
 
 
     def exibir_turno(self):

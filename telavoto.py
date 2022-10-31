@@ -5,28 +5,32 @@ class TelaVoto(AbstractTela):
     def __init__(self):
         super().__init__()
 
-    def le_inteiro(self):
-        return super().le_inteiro()
+    def le_inteiro(self, cargo: str = ""):
+        while True:
+            numero = input(cargo)
+            try:
+                nmro = int(numero)
+                print("voto:", nmro)
+                return int(nmro)
+            except ValueError:
+                nmro = 00
+                return nmro
 
     def voto_reitor(self):
         print("Digite Seu Voto")
-        try:
-            nmro = int(input("Reitoria: "))
-            return nmro
-        except ValueError:
-            nmro = 00
-            return nmro
+        numero = self.le_inteiro("reitoria: ")
+        return numero
 
     def voto_proreitor_grad(self):
-        numero = input("Pro-Reitoria de Graduação: ")
+        numero = self.le_inteiro("Pro-Reitoria de Graduação: ")
         return numero
 
     def voto_proreitor_pes(self):
-        numero = input("Pro-Reitoria de Pesquisa e Inovacao: ")
+        numero = self.le_inteiro("Pro-Reitoria de Pesquisa e Inovacao: ")
         return numero
     
     def voto_proreitor_ext(self):
-        numero = input("Pro-Reitoria de Extensão: ")
+        numero = self.le_inteiro("Pro-Reitoria de Extensão: ")
         return numero
     
     def categoria_vazia(self):

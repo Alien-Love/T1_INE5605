@@ -19,7 +19,7 @@ class TelaCandidato(AbstractTela):
             5 = alterar candidato existente
             """)
             option = input('digite a opção desejada: ')
-            if option in ['a', 'b', 'c', 'd', 'e']:
+            if option in opcoes:
                 return option
             else:
                 print('Digite uma opção válida.')
