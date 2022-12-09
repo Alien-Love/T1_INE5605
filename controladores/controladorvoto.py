@@ -1,4 +1,4 @@
-from telavoto import TelaVoto
+from telas.telavoto import TelaVoto
 from voto import Voto
 
 class ControladorVoto:

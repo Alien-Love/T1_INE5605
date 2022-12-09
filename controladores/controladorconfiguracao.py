@@ -1,5 +1,5 @@
-from configuracao import Configuracao
-from telaconfiguracao import TelaConfiguracao
+from entidades.configuracao import Configuracao
+from telas.telaconfiguracao import TelaConfiguracao
 
 class ControladorConfiguracao:
     def __init__(self, controlador_principal):

@@ -1,5 +1,5 @@
-from eleitor import Eleitor
-from telaeleitor import TelaEleitor
+from entidades.eleitor import Eleitor
+from telas.telaeleitor import TelaEleitor
 #from controladorurna import ControladorUrna
 
 class ControladorEleitor:

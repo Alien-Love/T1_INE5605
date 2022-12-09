@@ -1,6 +1,6 @@
-from urna import Urna
-from telaurna import TelaUrna
-from controladorvoto import ControladorVoto
+from entidades.urna import Urna
+from telas.telaurna import TelaUrna
+from controladores.controladorvoto import ControladorVoto
 
 class ControladorUrna:
 

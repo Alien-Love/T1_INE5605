@@ -1,7 +1,6 @@
-from candidato import Candidato
-from telacandidato import TelaCandidato
-from urna import Urna
-from controladorurna import ControladorUrna
+from entidades.candidato import Candidato
+from telas.telacandidato import TelaCandidato
+from entidades.urna import Urna
 
 class ControladorCandidato:
 
@@ -16,23 +15,14 @@ class ControladorCandidato:
         self.__controlador_urna = self.__controlador_principal.controlador_urna
 
     def mostra_tela_candidato(self):
-        # Chama a tela baseado na resposta escolhida no menu de candidatos.
-        escolha = self.__tela_candidato.mostrar_tela()
-        if escolha == '1':
-            self.adicionar_candidato()
-            #self.__tela_candidato.adicionar_candidato()
-        elif escolha == '2':
-            self.remover_candidato()
-            #self.__tela_candidato.remover_candidato()
-        elif escolha == '3':
-            self.listar_candidatos()
-            #self.__tela_candidato.listar_candidatos()
-        elif escolha == '4':
-            self.__tela_candidato.validar_dados()
-        elif escolha == '5':
-            self.mudar_candidato()
-            #self.__tela_candidato.alterar_candidato()
+        opcoes = {0: self.voltar, 1: self.adicionar_candidato,
+                  2: self.remover_candidato, 3: self.listar_candidatos,
+                  4: self.__tela_candidato.validar_dados,
+                  5: self.mudar_candidato}
 
+        while True:
+            opcao = (self.__tela_candidato.mostrar_tela())
+            opcoes[opcao]()
 
     def adicionar_candidato(self):
         info = self.__tela_candidato.adicionar_candidato()
@@ -91,3 +81,6 @@ class ControladorCandidato:
             "propes": self.__candidatos_propes, "proex": self.__candidatos_proex
             }
         return categorias[categoria]
+
+    def voltar(self):
+        pass

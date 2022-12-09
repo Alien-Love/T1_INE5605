@@ -1,11 +1,11 @@
 import sys
-from telainicial import TelaInicial
-from controladoreleitor import ControladorEleitor
-from controladorvoto import ControladorVoto
-from controladorurna import ControladorUrna
-from controladorcandidato import ControladorCandidato
-from resultado import Resultado
-from controladorconfiguracao import ControladorConfiguracao
+from telas.telainicial import TelaInicial
+from controladores.controladoreleitor import ControladorEleitor
+from controladores.controladorvoto import ControladorVoto
+from controladores.controladorurna import ControladorUrna
+from controladores.controladorcandidato import ControladorCandidato
+from entidades.resultado import Resultado
+from controladores.controladorconfiguracao import ControladorConfiguracao
 
 class ControladorPrincipal:
 
@@ -22,6 +22,8 @@ class ControladorPrincipal:
         opcoes = {0: self.finaliza_sistema, 1: self.inicia_voto, 2: self.inicia_cadastro, 3: self.inicia_resultado, 4: self.inicia_configuracao}
 
         while True:
+        #    opcao = (self.__tela_inicial.tela_opcoes())
+        #    opcoes[opcao]()
             opcao = (self.__tela_inicial.tela_opcoes())
             try:
                 if opcao == 1 and self.__controlador_configuracao.configuracao.turno == None:

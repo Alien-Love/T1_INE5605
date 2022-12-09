@@ -1,4 +1,4 @@
-from abstracttela import AbstractTela
+from telas.abstracttela import AbstractTela
 
 class TelaVoto(AbstractTela):
 

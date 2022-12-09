@@ -1,4 +1,4 @@
-from abstracttela import AbstractTela
+from telas.abstracttela import AbstractTela
 
 class TelaCandidato(AbstractTela):
 
@@ -10,7 +10,7 @@ class TelaCandidato(AbstractTela):
 
     def mostrar_tela(self):
         while True:
-            opcoes = ('1', '2', '3', '4', '5')
+            opcoes = ('1', '2', '3', '4', '5', '0')
             print('*'*20)
             print("""
 1 = adicionar novo candidato
@@ -18,11 +18,12 @@ class TelaCandidato(AbstractTela):
 3 = listar todos os candidatos
 4 = validar dados
 5 = alterar candidato existente
+0 = sair
             """)
             option = input('digite a opção desejada: ')
             print('*' * 20)
             if option in opcoes:
-                return option
+                return int(option)
             else:
                 print('*' * 20)
                 print('Digite uma opção válida.')
