@@ -16,6 +16,10 @@ class TelaVoto(AbstractTela):
                 nmro = 00
                 return nmro
 
+    def pega_cpf_eleitor(self):
+        cpf = input("Informe seu CPF:")
+        return int(cpf)
+
     def voto_reitor(self):
         print("Digite Seu Voto")
         numero = self.le_inteiro("reitoria: ")

@@ -4,6 +4,7 @@ class Configuracao:
         self.__quantia_cadidatos = quantia_candidatos
         self.__quantia_eleitores = quantia_eleitores
         self.__reitorias = reitorias
+        self.__urna_configurada = False
 
     @property
     def turno(self):
@@ -36,3 +37,11 @@ class Configuracao:
     @reitorias.setter
     def reitorias(self, reitorias):
         self.__reitorias = reitorias
+
+    @property
+    def urna_configurada(self):
+        return self.__urna_configurada
+    
+    @urna_configurada.setter
+    def urna_configurada(self, boolean):
+        self.__urna_configurada = boolean

@@ -1,8 +1,8 @@
 class Eleitor:
 
-    def __init__(self, nome, codigo, tipo: str):
+    def __init__(self, nome, cpf, tipo: str):
         self.__nome = nome
-        self.__codigo = codigo
+        self.__cpf = cpf
         self.__tipo = tipo
         self.__votou = False
 
@@ -15,12 +15,12 @@ class Eleitor:
         self.__nome = nome
 
     @property
-    def codigo(self):
-        return self.__codigo
+    def cpf(self):
+        return self.__cpf
 
-    @codigo.setter
-    def codigo(self, codigo):
-        self.__codigo = codigo
+    @cpf.setter
+    def cpf(self, cpf):
+        self.__cpf = cpf
     
     @property
     def tipo(self):

@@ -10,28 +10,36 @@ class ControladorConfiguracao:
     @property
     def configuracao(self):
         return self.__configuracao
-
+    
     def configurar(self):
-        dados = self.__tela_configuracao.config_()
+        turno = self.__tela_configuracao.config_()
         rei_torias = {1: "reitoria", 2: "prograd", 3: "propes", 4: "proex"}
         lista_reitorias = []
 
-        if dados[0] == 1:
-            configuracao = Configuracao(dados[0], dados[1], dados[2], list(rei_torias.values()))
+        if turno == 1:
+            dados = self.__tela_configuracao.dados_turno_1()
+            configuracao = Configuracao(int(turno), dados["total_candidatos"], dados["total_eleitores"], list(rei_torias.values()))
             #instancia configuracao com todas as categorias de candidato para voto 
             self.__configuracao = configuracao
+            configuracao.urna_configurada = True
         
-        else: #configuracao para o segundo turno
+        elif turno == 2: #configuracao para o segundo turno
+            dados = self.__tela_configuracao.dados_turno_2()
+            configuracao = Configuracao(int(turno), dados["total_candidatos"], dados["total_eleitores"], dados["reitorias"])
             lista_eleitores = self.__controlador_principal.controlador_eleitor.eleitores
             for eleitor in lista_eleitores:
                 eleitor.ja_votou = False #alterna o estado do parametro, permitindo que os eleitores votem novamente
-            configuracao = Configuracao(dados[0], dados[1], dados[2], [])
             self.__configuracao = configuracao
-            lista_cargos = dados[3] #recebe os cargos desejados pelo input da tela
+            lista_cargos = dados["reitorias"] #recebe os cargos desejados pelo input da tela
             lista_reitorias.clear() #limpa lista que armazena os cargos participantes
-            lista_eleitores.clear() #limpa lista para receber possiveis eleitores nao votantes no primeiro turno
+            #lista_eleitores.clear() #limpa lista para receber possiveis eleitores nao votantes no primeiro turno
             
             for i in range(len(lista_cargos)):
                 lista_reitorias.append(rei_torias.get(lista_cargos[i]))
                 #o objeto sera passado para a declaracao if dentro da funcao 'adiciona_voto'
                 self.__configuracao.reitorias = lista_reitorias
+            
+            configuracao.urna_configurada = True
+
+    def retornar(self):
+        self.__controlador_principal.inicia()

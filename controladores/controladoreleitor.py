@@ -6,27 +6,26 @@ class ControladorEleitor:
     def __init__(self, controlador_principal):
         self.__controlador_principal = controlador_principal
         self.__tela_eleitor = TelaEleitor()
-        #self.__controlador_urna = ControladorUrna(self)
         self.__eleitores = []
-        self.__eleitor = None  #eleitor atual, que sera passado como argumento na funcao ja_votou
 
     def inclui_eleitor(self):
         dados = self.__tela_eleitor.cadastro_eleitor()
         eleitor = Eleitor(dados[0], dados[1], dados[2]) #pega dados do eleitor a partir da tela de cadastro
-        self.__eleitores.append(eleitor)
-        self.__eleitor = eleitor #armazena o eleitor criado pela função na classe ControladorEleitor
-       
+        self.__eleitores.append(eleitor)       
             
     def ja_votou(self, eleitor):
-        eleitor = self.__eleitor
-        eleitor.votou = True 
-        self.__eleitor = None
-       
-    
+        eleitor.votou = True
+           
     @property
     def eleitores(self):
         return self.__eleitores
 
-    @property
-    def eleitor(self):
-        return self.__eleitor
+    @eleitores.setter
+    def eleitores(self, eleitor):
+        self.__eleitores.append(eleitor)
+
+    def busca_por_cpf(self, cpf):
+        for eleitor in self.__eleitores:
+            if eleitor.cpf == cpf:
+                return eleitor
+        return None

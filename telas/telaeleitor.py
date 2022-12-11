@@ -13,5 +13,5 @@ class TelaEleitor(AbstractTela):
        a = input("nome do eleitor:")
        b = input("cpf:")
        c = input("tipo:")
-       dados = a, b, c
+       dados = a, int(b), c
        return dados

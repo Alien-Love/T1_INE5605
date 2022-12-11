@@ -6,6 +6,7 @@ from controladores.controladorurna import ControladorUrna
 from controladores.controladorcandidato import ControladorCandidato
 from entidades.resultado import Resultado
 from controladores.controladorconfiguracao import ControladorConfiguracao
+from entidades.configuracaoexception import ConfiguracaoException
 
 class ControladorPrincipal:
 
@@ -19,18 +20,21 @@ class ControladorPrincipal:
         self.__resultado = Resultado(self)
 
     def inicia(self):    #inicia opçao de voto, cadastro, ou resultado
-        opcoes = {0: self.finaliza_sistema, 1: self.inicia_voto, 2: self.inicia_cadastro, 3: self.inicia_resultado, 4: self.inicia_configuracao}
+        opcoes = {
+            0: self.finaliza_sistema, 1: self.inicia_voto, 2: self.cadastro_candidato,
+            3: self.cadastro_eleitor, 4: self.inicia_resultado, 5: self.inicia_configuracao
+            }
 
         while True:
-        #    opcao = (self.__tela_inicial.tela_opcoes())
-        #    opcoes[opcao]()
             opcao = (self.__tela_inicial.tela_opcoes())
             try:
-                if opcao == 1 and self.__controlador_configuracao.configuracao.turno == None:
-                    raise Exception
+                if (opcao == 1):
+                    if (self.__controlador_configuracao.configuracao.urna_configurada == False):
+                        raise ConfiguracaoException
                 opcoes[opcao]()
-            except Exception:
+            except ConfiguracaoException:
                 self.__tela_inicial.erro_configuracao()
+
     @property
     def controlador_eleitor(self):
         return self.__controlador_eleitor
@@ -52,28 +56,14 @@ class ControladorPrincipal:
         return self.__resultado
 
     def inicia_voto(self):
-        
-        eleitores = len(self.__controlador_eleitor.eleitores)
-        x = 0
+        self.__controlador_voto.adiciona_voto()
+        self.__controlador_eleitor.ja_votou(self.__controlador_voto.eleitor_atual)            
 
-        while True:
-            try:
-                if (self.controlador_configuracao.configuracao.quantia_eleitores) < (eleitores): 
-                    raise Exception                   
-                self.__controlador_eleitor.inclui_eleitor()
-                self.__controlador_voto.adiciona_voto()
-                self.__controlador_eleitor.ja_votou(self.__controlador_eleitor.eleitor)
-                x += 1
-                break
-                                    
-            except Exception:
-                self.__tela_inicial.votacao_encerrada()
-                x += 1
-                break
-                
-
-    def inicia_cadastro(self):
+    def cadastro_candidato(self):
         self.__controlador_candidato.mostra_tela_candidato()
+
+    def cadastro_eleitor(self):
+        self.controlador_eleitor.inclui_eleitor()
 
     def inicia_resultado(self):
         self.__controlador_urna.exibir_votos_categorias()
