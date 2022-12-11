@@ -15,12 +15,14 @@ class ControladorCandidato:
         self.__controlador_urna = self.__controlador_principal.controlador_urna
 
     def mostra_tela_candidato(self):
-        opcoes = {0: self.voltar, 1: self.adicionar_candidato,
-                  2: self.remover_candidato, 3: self.listar_candidatos,
+        opcoes = {0: self.voltar,
+                  1: self.adicionar_candidato,
+                  2: self.remover_candidato,
+                  3: self.listar_candidatos,
                   4: self.__tela_candidato.validar_dados,
                   5: self.mudar_candidato}
-
-        while True:
+        opcao = 1
+        while opcao != 0:
             opcao = (self.__tela_candidato.mostrar_tela())
             opcoes[opcao]()
 
@@ -38,13 +40,13 @@ class ControladorCandidato:
             codigo = info[0]
             opcao = info[1]
             novo_valor = info[2]
-            if opcao == '1':
+            if opcao == 1:
                 self.mostrar_candidato(codigo).__codigo = novo_valor
-            elif opcao == '2':
+            elif opcao == 2:
                 self.mostrar_candidato(codigo).__chapa = novo_valor
-            elif opcao == '3':
+            elif opcao == 3:
                 self.mostrar_candidato(codigo).__nome = novo_valor
-            elif opcao == '4':
+            elif opcao == 4:
                 self.mostrar_candidato(codigo).__cargo = novo_valor
         except Exception:
             pass
@@ -83,4 +85,4 @@ class ControladorCandidato:
         return categorias[categoria]
 
     def voltar(self):
-        pass
+        return
