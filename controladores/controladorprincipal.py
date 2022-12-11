@@ -19,17 +19,25 @@ class ControladorPrincipal:
         self.__resultado = Resultado(self)
 
     def inicia(self):    #inicia opçao de voto, cadastro, ou resultado
-        opcoes = {0: self.finaliza_sistema, 1: self.inicia_voto, 2: self.inicia_cadastro, 3: self.inicia_resultado, 4: self.inicia_configuracao}
+        opcoes = {0: self.finaliza_sistema,
+                  1: self.inicia_voto,
+                  2: self.inicia_cadastro,
+                  3: self.inicia_resultado,
+                  4: self.inicia_configuracao}
 
         while True:
         #    opcao = (self.__tela_inicial.tela_opcoes())
         #    opcoes[opcao]()
             opcao = (self.__tela_inicial.tela_opcoes())
             try:
-                if opcao == 1 and self.__controlador_configuracao.configuracao.turno == None:
+                # if opcao == 1 and self.__controlador_configuracao.configuracao.turno == None:
+                possiveis = (1, 4)
+                if opcao not in possiveis and self.__controlador_configuracao.configuracao.turno == None:
+                    print('exception1')
                     raise Exception
                 opcoes[opcao]()
             except Exception:
+                print('exception2')
                 self.__tela_inicial.erro_configuracao()
     @property
     def controlador_eleitor(self):
