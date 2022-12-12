@@ -29,7 +29,10 @@ class ControladorPrincipal:
             opcao = (self.__tela_inicial.tela_opcoes())
             try:
                 if (opcao == 1):
-                    if (self.__controlador_configuracao.configuracao.urna_configurada == False):
+                    if self.__controlador_configuracao.configuracao is not None:
+                        if (self.__controlador_configuracao.configuracao.urna_configurada == False):
+                            raise ConfiguracaoException
+                    elif self.__controlador_configuracao.configuracao == None:
                         raise ConfiguracaoException
                 opcoes[opcao]()
             except ConfiguracaoException:
@@ -54,7 +57,7 @@ class ControladorPrincipal:
     @property
     def controlador_voto(self):
         return self.__controlador_voto
-        
+
     @property
     def resultado(self):
         return self.__resultado

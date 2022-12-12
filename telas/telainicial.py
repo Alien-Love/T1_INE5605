@@ -39,7 +39,7 @@ class TelaInicial(AbstractTela):
         return opcao
 
     def erro_configuracao(self):
-        print("A urna nao foi configurada")
+        sg.Popup("A URNA NÃO FOI CONFIGURADA")
 
     def votacao_encerrada(self):
         print("votacao Encerrada")
@@ -49,7 +49,7 @@ class TelaInicial(AbstractTela):
 
     def init_components(self):
         #sg.theme_previewer()
-        sg.ChangeLookAndFeel("DarkAmber")
+        sg.ChangeLookAndFeel("LightBlue3")
         layout = [
             [sg.Text('Urna Eletrônica - 2022', font=("Helvica",25))],
             [sg.Text('Escolha sua opção', font=("Helvica",15))],

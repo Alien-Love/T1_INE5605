@@ -22,28 +22,32 @@ class TelaEleitor(AbstractTela):
         if values['3']:
             categoria = "tecnico"
         if button in (None, 'Cancelar'):
+            self.close()
             return 0
         try:
-            instancia_cpf = isinstance(int(cpf), int)
-            if instancia_cpf == False:
+            if isinstance(cpf, int) == False:
                 raise CpfInvalidoException
             self.close()
             return {"nome": nome, "cpf": cpf, "categoria": categoria}
         except CpfInvalidoException:
+            self.close()
             return 1
         
     def recebe_dados_eleitor(self):
-        sg.ChangeLookAndFeel('DarkTeal4')
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
         [sg.Text('Eleitor, informe seus dados', font=("Helvica", 25))],
         [sg.Text('Nome:', size=(15, 1)), sg.InputText('', key='nome')],
         [sg.Text('CPF:', size=(15, 1)), sg.InputText('', key='cpf')],
         [sg.Text('Categoria', size=(15, 1), justification='center')],
-        [sg.Radio('Aluno','RD1', key='1'), sg.Radio('Professor', 'RD1', key='2'),
+        [sg.Radio('Aluno','RD1', key='1', default=True), sg.Radio('Professor', 'RD1', key='2'),
         sg.Radio('Tecnico Administrativo', 'RD1', key='3')],
         [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
         ]
         self.__window = sg.Window('Cadastro de Eleitor').Layout(layout)
+
+    def cpf_invalido(self):
+        sg.Popup("DIGITE UM CPF VALIDO")
 
     def close(self):
         self.__window.Close()

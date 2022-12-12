@@ -52,7 +52,7 @@ class TelaCandidato(AbstractTela):
 
 
     def adicionar_candidatos(self):
-        sg.ChangeLookAndFeel("DarkAmber")
+        sg.ChangeLookAndFeel("DarkTeal9")
         layout = [
             [sg.Text('Candidatos - 2022', font=("Helvica", 25))],
             [sg.Text('Dados do candidato', font=("Helvica", 15))],
@@ -66,7 +66,7 @@ class TelaCandidato(AbstractTela):
         self.__window = sg.Window('URNA ELETRÔNICA').Layout(layout)
 
     def init_components(self):
-        sg.ChangeLookAndFeel("DarkAmber")
+        sg.ChangeLookAndFeel("DarkTeal9")
         layout = [
             [sg.Text('Urna Eletrônica - 2022', font=("Helvica", 25))],
             [sg.Text('Escolha sua opção', font=("Helvica", 15))],
@@ -80,7 +80,7 @@ class TelaCandidato(AbstractTela):
         self.__window = sg.Window('URNA ELETRÔNICA').Layout(layout)
 
     def listagem_de_candidatos(self, candidatos):
-        sg.ChangeLookAndFeel("DarkAmber")
+        sg.ChangeLookAndFeel("DarkTeal9")
         layout = [
             [sg.Text('Urna Eletrônica - 2022', font=("Helvica", 25))],
             [sg.Text('Lista de Candidatos Cadastrados', font=("Helvica", 15))],

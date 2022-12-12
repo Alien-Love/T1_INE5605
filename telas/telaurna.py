@@ -7,7 +7,7 @@ class TelaUrna:
         pass
 
     def exibe_resultado(self, resultado_reitor, resultado_pr_grad, resultado_pr_pesq, resultado_pr_ext):
-        sg.ChangeLookAndFeel("DarkAmber")
+        sg.ChangeLookAndFeel("DarkTeal9")
         layout = [
             [sg.Text('Urna Eletrônica - 2022', font=("Helvica", 25))],
             [sg.Text('Resultados das eleições', font=("Helvica", 15))],

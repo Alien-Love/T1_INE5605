@@ -17,7 +17,7 @@ class TelaVoto(AbstractTela):
                 return nmro
 
     def pega_cpf_eleitor(self):
-        sg.ChangeLookAndFeel('DarkTeal4')
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
         [sg.Text('Eleitor, informe seu CPF', font=("Helvica", 25))],
         [sg.Text('CPF:', size=(15, 1)), sg.InputText('', key='cpf')],
@@ -30,7 +30,7 @@ class TelaVoto(AbstractTela):
         return int(cpf)
 
     def voto_reitor(self):
-        sg.ChangeLookAndFeel('DarkTeal4')
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
         [sg.Text('Digite Seu Voto', font=("Helvica", 25))],
         [sg.Text('Cargo: Reitoria', font=("helvica", 20))],
@@ -45,7 +45,7 @@ class TelaVoto(AbstractTela):
         return numero
 
     def voto_proreitor_grad(self):
-        sg.ChangeLookAndFeel('DarkTeal4')
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
         [sg.Text('Digite Seu Voto', font=("Helvica", 25))],
         [sg.Text('Cargo: Pro-Reitoria de Graduação', font=("helvica", 20))],
@@ -61,7 +61,7 @@ class TelaVoto(AbstractTela):
 
 
     def voto_proreitor_pes(self):
-        sg.ChangeLookAndFeel('DarkTeal4')
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
         [sg.Text('Digite Seu Voto', font=("Helvica", 25))],
         [sg.Text('Cargo: Pro-Reitoria de Pesquisa', font=("helvica", 20))],
@@ -76,7 +76,7 @@ class TelaVoto(AbstractTela):
         return numero
     
     def voto_proreitor_ext(self):
-        sg.ChangeLookAndFeel('DarkTeal4')
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
         [sg.Text('Digite Seu Voto', font=("Helvica", 25))],
         [sg.Text('Cargo: Pro-Reitoria de Extensão', font=("helvica", 20))],

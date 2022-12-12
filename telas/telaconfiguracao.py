@@ -31,7 +31,7 @@ class TelaConfiguracao(AbstractTela):
 
     def init_components(self):
         #sg.theme_previewer()
-        sg.ChangeLookAndFeel("DarkAmber")
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
             [sg.Text('Configurações da Urna', font=("Helvica",25))],
             [sg.Text('Selecione o Turno', font=("Helvica",15))],
@@ -42,7 +42,7 @@ class TelaConfiguracao(AbstractTela):
         self.__window = sg.Window('URNA ELETRÔNICA').Layout(layout)
     
     def dados_turno_1(self):
-        sg.ChangeLookAndFeel('DarkAmber')
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
         [sg.Text('Configurações - 1º Turno', font=("Helvica", 25))],
         [sg.Text('Total de Eleitores', size=(15, 1)), sg.Slider(range=(2, 99), default_value=2, orientation='h', key='slider_1')],
@@ -59,7 +59,7 @@ class TelaConfiguracao(AbstractTela):
         return {"total_eleitores": total_eleitores, "total_candidatos": total_candidatos}
 
     def dados_turno_2(self):
-        sg.ChangeLookAndFeel('DarkAmber')
+        sg.ChangeLookAndFeel('DarkTeal9')
         layout = [
         [sg.Text('Configurações - 2º Turno', font=("Helvica", 25))],
         [sg.Text('Total de Eleitores', size=(15, 1)), sg.Slider(range=(2, 99), default_value=2, orientation='h', key='slider_1')],

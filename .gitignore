@@ -46,3 +46,6 @@ telas/__pycache__/telaurna.cpython-37.pyc
 telas/__pycache__/telavoto.cpython-37.pyc
 persistencia/__pycache__/dao.cpython-37.pyc
 persistencia/__pycache__/eleitordao.cpython-37.pyc
+eleitores.pkl
+persistencia/__pycache__/__init__.cpython-37.pyc
+entidades/__pycache__/voto.cpython-37.pyc
