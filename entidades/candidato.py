@@ -48,3 +48,9 @@ class Candidato:
     @chapa.setter
     def chapa(self, chapa):
         self.__chapa = chapa
+
+    def __repr__(self):
+        return f"cpf:{self.__codigo}," \
+               f" chapa:{self.__chapa}," \
+               f" nome:{self.__nome}," \
+               f" cargo:{self.__cargo}"

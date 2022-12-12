@@ -17,6 +17,8 @@ class TelaCandidato(AbstractTela):
         button, values = self.__window.Read()
         for value in range(0, 5):
             if values[f'{value}'] == True:
+                print(value)
+                self.close()
                 return value
 
     def adicionar_candidato(self):
@@ -28,52 +30,26 @@ class TelaCandidato(AbstractTela):
 
 
     def remover_candidato(self):
-        while True:
-            codigo_candidato_removido = input('Digite o codigo do candidato a ser removido: ')
-            confirmacao = input(f'Digite CONFIRMA para excluir o candidato de código {codigo_candidato_removido}: ')
-            if confirmacao == 'CONFIRMA':
-                return codigo_candidato_removido
+        self.adicionar_candidatos()
+        button, values = self.__window.Read()
+        self.close()
+        return values
 
 
     def listar_candidatos(self, candidatos):
-        info_candidatos = candidatos
-        for candidato in info_candidatos:
-            print(f'Candidato: {candidato.nome} - Cargo: {candidato.cargo}')
-        pass
+        self.listagem_de_candidatos(candidatos)
 
 
     def alterar_candidato(self):
-        print('*' * 20)
-        while True:
-            codigo = input('Digite o código do candidato a ser alterado: ')
-            confirm = input(f'Esse é o código do candidato que deseja alterar? {a} Digite SIM para confirmar: ')
-            if confirm == 'SIM':
-                print("""
-                    1 = codigo
-                    2 = chapa
-                    3 = nome
-                    4 = cargo
-                    """)
-                resposta = int(input('Qual dado gostaria de alterar? '))
-                if resposta in (1, 2, 3, 4):
-                    if resposta == 1:
-                        info = (codigo, 1, input('Digite o novo código: '))
-                        return info
-                    elif resposta == 2:
-                        info = (codigo, 2, input('Digite a nova chapa: '))
-                        return info
-                    elif resposta == 3:
-                        info = (codigo, 3, input('Digite o novo nome: '))
-                        return info
-                    elif resposta == 4:
-                        info = (codigo, 4, input('Digite o novo cargo: '))
-                        return info
-                else:
-                    print('Digite uma opção válida.')
+        self.adicionar_candidatos()
+        button,values = self.__window.Read()
+        self.close()
+        return values
 
 
     def validar_dados(self):
        pass
+
 
     def adicionar_candidatos(self):
         sg.ChangeLookAndFeel("DarkAmber")
@@ -102,6 +78,21 @@ class TelaCandidato(AbstractTela):
             [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
         ]
         self.__window = sg.Window('URNA ELETRÔNICA').Layout(layout)
+
+    def listagem_de_candidatos(self, candidatos):
+        sg.ChangeLookAndFeel("DarkAmber")
+        layout = [
+            [sg.Text('Urna Eletrônica - 2022', font=("Helvica", 25))],
+            [sg.Text('Lista de Candidatos Cadastrados', font=("Helvica", 15))],
+            [[sg.Listbox(candidatos, size=(40, 3))]]
+        ]
+        self.__window = sg.Window('URNA ELETRÔNICA').Layout(layout)
+        while True:
+            event, values = self.__window.read()
+            if event == sg.WINDOW_CLOSED:
+                break
+            print(event, values)
+        self.close()
 
     def close(self):
         self.__window.Close()

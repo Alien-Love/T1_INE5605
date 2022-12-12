@@ -19,8 +19,7 @@ class ControladorCandidato:
                   1: self.adicionar_candidato,
                   2: self.remover_candidato,
                   3: self.listar_candidatos,
-                  4: self.__tela_candidato.validar_dados,
-                  5: self.mudar_candidato}
+                  4: self.mudar_candidato}
         opcao = 1
         while opcao != 0:
             opcao = (self.__tela_candidato.mostrar_tela())
@@ -48,34 +47,37 @@ class ControladorCandidato:
 
 
     def mudar_candidato(self):
+        values = self.__tela_candidato.adicionar_candidato()
+        nome = values['nome']
+        cpf = values['cpf']
+        chapa = values['chapa']
+        cargo = ''
+        for value in range(1, 4):
+            if values[f'{value}'] == True:
+                if value == 1:
+                    cargo = 'proex'
+                elif value == 2:
+                    cargo = 'prograd'
+                elif value == 3:
+                    cargo = 'reitor'
+                else:
+                    cargo = 'propes'
         try:
-            info = self.__tela_candidato.alterar_candidato()
-            codigo = info[0]
-            opcao = info[1]
-            novo_valor = info[2]
-            if opcao == 1:
-                self.mostrar_candidato(codigo).__codigo = novo_valor
-            elif opcao == 2:
-                self.mostrar_candidato(codigo).__chapa = novo_valor
-            elif opcao == 3:
-                self.mostrar_candidato(codigo).__nome = novo_valor
-            elif opcao == 4:
-                self.mostrar_candidato(codigo).__cargo = novo_valor
+            self.mostrar_candidato(cpf).__chapa = chapa
+            self.mostrar_candidato(cpf).__nome = nome
+            self.mostrar_candidato(cpf).__cargo = cargo
         except Exception:
             pass
-            # setter de diferentes atributos baseado na opção escolhida no menu de
-            # alteração de candidato.
-
 
     def remover_candidato(self):
-    # remove o candidato escolhido na tela de exclusão de candidatos.
-        codigo_do_candidato = self.__tela_candidato.remover_candidato()
-        candidato = self.mostrar_candidato(codigo_do_candidato)
+        values = self.__tela_candidato.adicionar_candidato()
+        cpf = values['cpf']
+        candidato = self.mostrar_candidato(cpf)
         try:
             self.__controlador_urna.urna.remover_candidatos(candidato)
         except ValueError:
+            '''candidato nao existe'''
             pass
-
 
     def listar_candidatos(self):
         candidatos = self.__controlador_urna.exibir_candidatos
