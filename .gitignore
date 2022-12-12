@@ -44,3 +44,5 @@ telas/__pycache__/telaeleitor.cpython-37.pyc
 telas/__pycache__/telainicial.cpython-37.pyc
 telas/__pycache__/telaurna.cpython-37.pyc
 telas/__pycache__/telavoto.cpython-37.pyc
+persistencia/__pycache__/dao.cpython-37.pyc
+persistencia/__pycache__/eleitordao.cpython-37.pyc

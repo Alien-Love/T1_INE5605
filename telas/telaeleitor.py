@@ -43,7 +43,7 @@ class TelaEleitor(AbstractTela):
         sg.Radio('Tecnico Administrativo', 'RD1', key='3')],
         [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
         ]
-        self.__window = sg.Window('Sistema de livros').Layout(layout)
+        self.__window = sg.Window('Cadastro de Eleitor').Layout(layout)
 
     def close(self):
         self.__window.Close()
