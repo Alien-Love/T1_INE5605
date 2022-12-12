@@ -1,39 +1,30 @@
 from telas.abstracttela import AbstractTela
+import PySimpleGUI as sg
 
 class TelaCandidato(AbstractTela):
 
     def __init__(self):
         super().__init__()
+        self.__window = None
+        self.init_components()
+        self.adicionar_candidatos()
 
     def le_inteiro(self, valor):
         return super().le_inteiro(valor)
 
     def mostrar_tela(self):
-        opcoes = ('1', '2', '3', '4', '5', '0')
-        print('*'*20)
-        print("""
-1 = adicionar novo candidato
-2 = remover um candidato já cadastrado
-3 = listar todos os candidatos
-4 = validar dados
-5 = alterar candidato existente
-0 = sair
-        """)
-        option = input('digite a opção desejada: ')
-        print('*' * 20)
-        while option not in opcoes:
-            print('*' * 20)
-            option = input('Digite uma opção válida')
-            print('*' * 20)
-        return int(option)
-
+        self.init_components()
+        button, values = self.__window.Read()
+        for value in range(0, 5):
+            if values[f'{value}'] == True:
+                return value
 
     def adicionar_candidato(self):
-        nome_candidato = input('Digite o nome do novo candidato: ')
-        codigo_candidato = input(f'Digite o código do candidato {nome_candidato}: ')
-        chapa_candidato = input(f'Digite a chapa do candidato {nome_candidato}: ')
-        cargo_candidato = input(f'digite o cargo do candidato {nome_candidato}(reitor, prograd, propes, proex): ')
-        return (codigo_candidato, chapa_candidato, nome_candidato, cargo_candidato)
+        self.adicionar_candidatos()
+        button, values = self.__window.Read()
+        self.close()
+        return values
+
 
 
     def remover_candidato(self):
@@ -83,3 +74,34 @@ class TelaCandidato(AbstractTela):
 
     def validar_dados(self):
        pass
+
+    def adicionar_candidatos(self):
+        sg.ChangeLookAndFeel("DarkAmber")
+        layout = [
+            [sg.Text('Candidatos - 2022', font=("Helvica", 25))],
+            [sg.Text('Dados do candidato', font=("Helvica", 15))],
+            [sg.Text('Nome:', size=(15, 1)), sg.InputText('', key='nome')],
+            [sg.Text('CPF:', size=(15, 1)), sg.InputText('', key='cpf')],
+            [sg.Text('Chapa:', size=(15, 1)), sg.InputText('', key='chapa')],
+            [sg.Radio('Proex','RD1', key='1'), sg.Radio('Prograd', 'RD1', key='2'), sg.Radio('Reitor', 'RD1', key='3'), sg.Radio('Propes', 'RD1', key='4')],
+            [sg.Radio('Sair', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('URNA ELETRÔNICA').Layout(layout)
+
+    def init_components(self):
+        sg.ChangeLookAndFeel("DarkAmber")
+        layout = [
+            [sg.Text('Urna Eletrônica - 2022', font=("Helvica", 25))],
+            [sg.Text('Escolha sua opção', font=("Helvica", 15))],
+            [sg.Radio('Adicionar novo candidato', "RD1", key='1')],
+            [sg.Radio('Remover um Candidato', "RD1", key='2')],
+            [sg.Radio('Listar todos os candidatos', "RD1", key='3')],
+            [sg.Radio('Alterar candidato existente', "RD1", key='4')],
+            [sg.Radio('Sair', "RD1", key='0')],
+            [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('URNA ELETRÔNICA').Layout(layout)
+
+    def close(self):
+        self.__window.Close()

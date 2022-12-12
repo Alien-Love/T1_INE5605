@@ -27,11 +27,24 @@ class ControladorCandidato:
             opcoes[opcao]()
 
     def adicionar_candidato(self):
-        info = self.__tela_candidato.adicionar_candidato()
-        candidato = Candidato(info[0], info[1], info[2], info[3])
+        values = self.__tela_candidato.adicionar_candidato()
+        nome = values['nome']
+        cpf = values['cpf']
+        chapa = values['chapa']
+        cargo = ''
+        for value in range(1, 4):
+            if values[f'{value}'] == True:
+                if value == 1:
+                    cargo = 'proex'
+                elif value == 2:
+                    cargo = 'prograd'
+                elif value == 3:
+                    cargo = 'reitor'
+                else:
+                    cargo = 'propes'
+        candidato = Candidato(cpf, chapa, nome, cargo)
         self.__controlador_urna.urna.add_candidatos(candidato)
-        # Adiciona candidato com as informações recebidas na tela de adicionar
-        # candidato.
+
 
 
     def mudar_candidato(self):
