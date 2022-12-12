@@ -10,21 +10,6 @@ class ControladorUrna:
         self.__urna = Urna()
         self.__controlador_voto = ControladorVoto
 
-
-    #def incluir_eleitor(self, Eleitor):
-    #    self.__urna.__eleitores = Eleitor
-
-
-    #def incluir_candidato(self, candidato):
-    #    self.__urna.add_candidatos(candidato)
-
-    #def incluir_voto(self, Voto):
-    #    self.__urna.__votos = Voto
-
-
-    #def excluir_candidato(self, candidato):
-    #    pass
-
     @property
     def urna(self):
         return self.__urna
@@ -63,6 +48,43 @@ class ControladorUrna:
         resultado_final_prograd = {}
         resultado_final_propes = {}
         resultado_final_proex = {}
+        aluno_reitor = 0
+        professor_reitor = 0
+        tecnico_reitor = 0
+        aluno_prograd = 0
+        professor_prograd = 0
+        tecnico_prograd = 0
+        aluno_propes = 0
+        professor_propes = 0
+        tecnico_propes = 0
+        aluno_proex = 0
+        professor_proex = 0
+        tecnico_proex = 0
+        for voto in votos:
+            if voto.tipo_eleitor == 'aluno' and voto.cargo_voto == 'reitor':
+                aluno_reitor += 1
+            elif voto.tipo_eleitor == 'professor' and voto.cargo_voto == 'reitor':
+                professor_reitor += 1
+            elif voto.tipo_eleitor == 'tecnico' and voto.cargo_voto == 'reitor':
+                tecnico_reitor += 1
+            elif voto.tipo_eleitor == 'aluno' and voto.cargo_voto == 'prograd':
+                aluno_prograd += 1
+            elif voto.tipo_eleitor == 'professor' and voto.cargo_voto == 'prograd':
+                professor_prograd += 1
+            elif voto.tipo_eleitor == 'tecnico' and voto.cargo_voto == 'prograd':
+                tecnico_prograd += 1
+            elif voto.tipo_eleitor == 'aluno' and voto.cargo_voto == 'propes':
+                aluno_propes += 1
+            elif voto.tipo_eleitor == 'professor' and voto.cargo_voto == 'propes':
+                professor_propes += 1
+            elif voto.tipo_eleitor == 'tecnico' and voto.cargo_voto == 'propes':
+                tecnico_propes += 1
+            elif voto.tipo_eleitor == 'aluno' and voto.cargo_voto == 'proex':
+                aluno_proex += 1
+            elif voto.tipo_eleitor == 'professor' and voto.cargo_voto == 'proex':
+                professor_proex += 1
+            elif voto.tipo_eleitor == 'tecnico' and voto.cargo_voto == 'proex':
+                tecnico_proex += 1
         for candidato in candidatos:
             #zera os contadores de voto para cada candidato
             votos_aluno_reitor = 0
@@ -86,39 +108,33 @@ class ControladorUrna:
                     elif voto.tipo_eleitor == 'tecnico':
                         votos_tecnicos_reitor += 1
             if candidato.cargo == 'reitor':
-                porcentagem = ((votos_aluno_reitor / 40000) * (1 / 3)) + (
-                            (votos_professores_reitor / 2500) * (1 / 3)) + (
-                                          (votos_tecnicos_reitor / 3100) * (
+                porcentagem = ((votos_aluno_reitor / aluno_reitor) * (1 / 3)) + (
+                            (votos_professores_reitor / professor_reitor) * (1 / 3)) + (
+                                          (votos_tecnicos_reitor / tecnico_reitor) * (
                                               1 / 3))
                 resultado_final_reitor[candidato.nome] = porcentagem
             elif candidato.cargo == 'prograd':
-                porcentagem = ((votos_aluno_prograd / 40000) * (1 / 3)) + (
-                            (votos_professores_prograd / 2500) * (1 / 3)) + (
-                                          (votos_tecnicos_prograd / 3100) * (
+                porcentagem = ((votos_aluno_prograd / aluno_prograd) * (1 / 3)) + (
+                            (votos_professores_prograd / professor_prograd) * (1 / 3)) + (
+                                          (votos_tecnicos_prograd / tecnico_prograd) * (
                                               1 / 3))
                 resultado_final_prograd[candidato.nome] = porcentagem
             elif candidato.cargo == 'propes':
-                porcentagem = ((votos_aluno_propes / 40000) * (1 / 3)) + (
-                            (votos_professores_propes / 2500) * (1 / 3)) + (
-                                          (votos_tecnicos_propes / 3100) * (
+                porcentagem = ((votos_aluno_propes / aluno_propes) * (1 / 3)) + (
+                            (votos_professores_propes / professor_propes) * (1 / 3)) + (
+                                          (votos_tecnicos_propes / tecnico_propes) * (
                                               1 / 3))
                 resultado_final_propes[candidato.nome] = porcentagem
             elif candidato.cargo == 'proex':
-                porcentagem = ((votos_aluno_proex / 40000) * (1 / 3)) + (
-                            (votos_professores_proex / 2500) * (1 / 3)) + (
-                                          (votos_tecnicos_proex / 3100) * (
+                porcentagem = ((votos_aluno_proex / aluno_proex) * (1 / 3)) + (
+                            (votos_professores_proex / professor_proex) * (1 / 3)) + (
+                                          (votos_tecnicos_proex / tecnico_proex) * (
                                               1 / 3))
                 resultado_final_proex[candidato.nome] = porcentagem
         self.__tela_urna.exibe_resultado(resultado_final_reitor,
                                          resultado_final_prograd,
                                          resultado_final_propes,
                                          resultado_final_proex)
-
-
-    #def escolher_turno(self):
-        #turno = self.__tela_urna.escolha_turno()
-        #self.__urna.turno(turno)
-
 
     def exibir_turno(self):
         return self.__controlador_principal.controlador_configuracao.configuracao.turno
