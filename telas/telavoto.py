@@ -1,42 +1,97 @@
 from telas.abstracttela import AbstractTela
+import PySimpleGUI as sg
 
 class TelaVoto(AbstractTela):
 
     def __init__(self):
         super().__init__()
+        self.__window = None
 
-    def le_inteiro(self, cargo: str = ""):
+    def le_inteiro(self, numero):
         while True:
-            numero = input(cargo)
             try:
                 nmro = int(numero)
-                print("voto:", nmro)
                 return int(nmro)
             except ValueError:
                 nmro = 00
                 return nmro
 
     def pega_cpf_eleitor(self):
-        cpf = input("Informe seu CPF:")
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+        [sg.Text('Eleitor, informe seu CPF', font=("Helvica", 25))],
+        [sg.Text('CPF:', size=(15, 1)), sg.InputText('', key='cpf')],
+        [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Votação em Andamento').Layout(layout)
+        button, values = self.__window.Read()
+        cpf = values['cpf']
+        self.close()
         return int(cpf)
 
     def voto_reitor(self):
-        print("Digite Seu Voto")
-        numero = self.le_inteiro("reitoria: ")
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+        [sg.Text('Digite Seu Voto', font=("Helvica", 25))],
+        [sg.Text('Cargo: Reitoria', font=("helvica", 20))],
+        [sg.Text('Voto', size=15), sg.InputText('', key='voto')],
+        [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Votação em Andamento').Layout(layout)
+        button, values = self.__window.Read()
+        voto = values['voto']
+        numero = self.le_inteiro(voto)
+        self.close()        
         return numero
 
     def voto_proreitor_grad(self):
-        numero = self.le_inteiro("Pro-Reitoria de Graduação: ")
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+        [sg.Text('Digite Seu Voto', font=("Helvica", 25))],
+        [sg.Text('Cargo: Pro-Reitoria de Graduação', font=("helvica", 20))],
+        [sg.Text('Voto', size=15), sg.InputText('', key='voto')],
+        [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Votação em Andamento').Layout(layout)
+        button, values = self.__window.Read()
+        voto = values['voto']
+        numero = self.le_inteiro(voto)
+        self.close()
         return numero
 
+
     def voto_proreitor_pes(self):
-        numero = self.le_inteiro("Pro-Reitoria de Pesquisa e Inovacao: ")
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+        [sg.Text('Digite Seu Voto', font=("Helvica", 25))],
+        [sg.Text('Cargo: Pro-Reitoria de Pesquisa', font=("helvica", 20))],
+        [sg.Text('Voto', size=15), sg.InputText('', key='voto')],
+        [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Votação em Andamento').Layout(layout)
+        button, values = self.__window.Read()
+        voto = values['voto']
+        numero = self.le_inteiro(voto)
+        self.close()
         return numero
     
     def voto_proreitor_ext(self):
-        numero = self.le_inteiro("Pro-Reitoria de Extensão: ")
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+        [sg.Text('Digite Seu Voto', font=("Helvica", 25))],
+        [sg.Text('Cargo: Pro-Reitoria de Extensão', font=("helvica", 20))],
+        [sg.Text('Voto', size=15), sg.InputText('', key='voto')],
+        [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Votação em Andamento').Layout(layout)
+        button, values = self.__window.Read()
+        voto = values['voto']
+        numero = self.le_inteiro(voto)
+        self.close()
         return numero
-    
+
     def categoria_vazia(self):
         print("Categoria nao possui candidatos!")
 
+    def close(self):
+        self.__window.Close()
