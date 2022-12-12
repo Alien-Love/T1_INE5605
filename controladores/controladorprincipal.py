@@ -52,6 +52,10 @@ class ControladorPrincipal:
         return self.__controlador_urna
 
     @property
+    def controlador_voto(self):
+        return self.__controlador_voto
+        
+    @property
     def resultado(self):
         return self.__resultado
 

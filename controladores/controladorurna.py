@@ -8,7 +8,7 @@ class ControladorUrna:
         self.__controlador_principal = controlador_principal
         self.__tela_urna = TelaUrna()
         self.__urna = Urna()
-        self.__controlador_voto = ControladorVoto
+        self.__controlador_voto = controlador_principal.controlador_voto
 
 
     #def incluir_eleitor(self, Eleitor):
