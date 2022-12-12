@@ -10,8 +10,14 @@ class ControladorEleitor:
 
     def inclui_eleitor(self):
         dados = self.__tela_eleitor.cadastro_eleitor()
-        eleitor = Eleitor(dados[0], dados[1], dados[2]) #pega dados do eleitor a partir da tela de cadastro
-        self.__eleitores.append(eleitor)       
+        if  dados == 0:
+            self.__controlador_principal.inicia()
+        elif dados == 1:
+            self.__tela_eleitor.cpf_invalido()
+            self.__controlador_principal.inicia()
+        else:
+            eleitor = Eleitor(dados["nome"], int(dados["cpf"]), dados["categoria"]) #pega dados do eleitor a partir da tela de cadastro
+            self.__eleitores.append(eleitor)       
             
     def ja_votou(self, eleitor):
         eleitor.votou = True

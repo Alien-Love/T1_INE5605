@@ -33,12 +33,12 @@ class ControladorConfiguracao:
             lista_cargos = dados["reitorias"] #recebe os cargos desejados pelo input da tela
             lista_reitorias.clear() #limpa lista que armazena os cargos participantes
             #lista_eleitores.clear() #limpa lista para receber possiveis eleitores nao votantes no primeiro turno
-            
+            print("dados", dados["reitorias"])
             for i in range(len(lista_cargos)):
-                lista_reitorias.append(rei_torias.get(lista_cargos[i]))
+                lista_reitorias.append(lista_cargos[i])
                 #o objeto sera passado para a declaracao if dentro da funcao 'adiciona_voto'
                 self.__configuracao.reitorias = lista_reitorias
-            
+            print(self.__configuracao.reitorias)
             configuracao.urna_configurada = True
 
     def retornar(self):

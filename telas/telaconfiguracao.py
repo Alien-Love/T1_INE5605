@@ -76,11 +76,13 @@ class TelaConfiguracao(AbstractTela):
         button, values = self.__window.Read()
         total_eleitores = values['slider_1']
         total_candidatos = values['slider_2']
-        checkbox = [values['cb_1'], values['cb_2'], values['cb_3'], values['cb_4']]
-        reitorias_list = ['reitoria', 'propes', 'prograd', 'proex']
+        checkbox = {values['cb_1']: "reitoria", values['cb_2']: "propes",
+        values['cb_3']: "prograd", values['cb_4']: "proex"}
         reitorias = []
-        for reitoria in reitorias_list:
-            if checkbox[reitorias_list.index(reitoria)] == True:
-                reitorias.append(reitoria)
+        for key in checkbox:
+            print(key)
+            if checkbox[key] == True:
+                reitorias.append(checkbox[key])
+        
         self.close()
         return {"total_eleitores": total_eleitores, "total_candidatos": total_candidatos, "reitorias": reitorias}

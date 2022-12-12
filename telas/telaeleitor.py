@@ -1,17 +1,49 @@
 from telas.abstracttela import AbstractTela
+import PySimpleGUI as sg
+from entidades.configuracaoexception import CpfInvalidoException
 
 class TelaEleitor(AbstractTela):
     def __init__(self):
         super().__init__()
-    #nome deve ser uma string de 3 ou mais caracteres
-    #cpf deve ser um inteiro de 11 digitos
-    #tipo sera um inteiro de 1 a 3: {1: 'aluno', 2: 'professor', 3: 'tecnico administrativo'}
+        self.__window = None
+
     def le_inteiro(self):
         return super().le_inteiro()
 
     def cadastro_eleitor(self):
-       a = input("nome do eleitor:")
-       b = input("cpf:")
-       c = input("tipo:")
-       dados = a, int(b), c
-       return dados
+        self.recebe_dados_eleitor()
+        button, values = self.__window.Read()
+        nome = values['nome']
+        cpf = values['cpf']
+        if values['1']:
+            categoria = "aluno"
+        if values['2']:
+            categoria = "professor"
+        if values['3']:
+            categoria = "tecnico"
+        if button in (None, 'Cancelar'):
+            return 0
+        try:
+            instancia_cpf = isinstance(int(cpf), int)
+            if instancia_cpf == False:
+                raise CpfInvalidoException
+            self.close()
+            return {"nome": nome, "cpf": cpf, "categoria": categoria}
+        except CpfInvalidoException:
+            return 1
+        
+    def recebe_dados_eleitor(self):
+        sg.ChangeLookAndFeel('DarkTeal4')
+        layout = [
+        [sg.Text('Eleitor, informe seus dados', font=("Helvica", 25))],
+        [sg.Text('Nome:', size=(15, 1)), sg.InputText('', key='nome')],
+        [sg.Text('CPF:', size=(15, 1)), sg.InputText('', key='cpf')],
+        [sg.Text('Categoria', size=(15, 1), justification='center')],
+        [sg.Radio('Aluno','RD1', key='1'), sg.Radio('Professor', 'RD1', key='2'),
+        sg.Radio('Tecnico Administrativo', 'RD1', key='3')],
+        [sg.Button('Confirmar'), sg.Cancel('Cancelar')]
+        ]
+        self.__window = sg.Window('Sistema de livros').Layout(layout)
+
+    def close(self):
+        self.__window.Close()
